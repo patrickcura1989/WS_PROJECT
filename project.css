@@ -387,8 +387,8 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 .w3-btn {
 	border: none;
-	display: inline-block;
-	outline: 0;
+	display: inline-block; /* inside like p outside like span http://www.w3schools.com/cssref/pr_class_display.asp */
+	outline: 0; /* outline outside border http://www.w3schools.com/cssref/tryit.asp?filename=trycss_outline */
 	padding: 6px 16px;
 	vertical-align: middle;
 	overflow: hidden;
