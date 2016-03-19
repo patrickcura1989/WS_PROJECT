@@ -5,11 +5,17 @@
 	box-sizing: border-box
 }
 
-
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
 html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
+}
+
+/* End extract from normalize.css */
+html, body {
+	font-family: Verdana, sans-serif;
+	font-size: 15px;
+	line-height: 1.5
 }
 
 
@@ -19,16 +25,14 @@ body {
 }
 
 img {
-	border: 0
-}
-
-img {
+	border: 0;
 	margin-bottom: -5px
 }
 
 a {
 	-webkit-tap-highlight-color: transparent;
-	background-color: transparent
+	background-color: transparent;
+	color: inherit
 }
 
 a:active, a:hover {
@@ -39,21 +43,22 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	font-weight: inherit
 }
 
-a {
-	color: inherit
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Segoe UI", Arial, sans-serif;
+	font-weight: 400;
+	margin: 10px 0
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Segoe UI", Arial, sans-serif
+h2 {
+	font-size: 30px
 }
 
 h3 {
 	font-size: 24px
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 400;
-	margin: 10px 0
+h4 {
+	font-size: 20px
 }
 
 footer {
@@ -63,10 +68,7 @@ footer {
 select {
 	color: inherit;
 	font: inherit;
-	margin: 0
-}
-
-select {
+	margin: 0;
 	text-transform: none
 }
 
@@ -82,7 +84,7 @@ html input[type=button], input[type=reset], input[type=submit] {
 	cursor: pointer
 }
 
-button[disabled], html input[disabled] {
+html input[disabled] {
 	cursor: default
 }
 
@@ -115,21 +117,13 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 button {
 	color: inherit;
 	font: inherit;
-	margin: 0
-}
-
-button {
-	overflow: visible
-}
-
-button {
-	text-transform: none
-}
-
-button {
+	margin: 0;
+	overflow: visible;
+	text-transform: none;
 	-webkit-appearance: button;
 	cursor: pointer
 }
+
 
 button[disabled] {
 	cursor: default
@@ -138,14 +132,6 @@ button[disabled] {
 button::-moz-focus-inner {
 	border: 0;
 	padding: 0
-}
-
-h2 {
-	font-size: 30px
-}
-
-h4 {
-	font-size: 20px
 }
 
 textarea {
@@ -202,17 +188,16 @@ https://css-tricks.com/multiple-class-id-selectors/
 http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm 
 */
 
-.w3-topnav a {
-	text-decoration: none !important
-}
-
 .w3-topnav {
 	padding: 8px 8px
 }
 
 .w3-topnav a {
+	text-decoration: none !important;
 	padding: 0 8px;
-	border-bottom: 3px solid transparent
+	border-bottom: 3px solid transparent;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease
 }
 
 .w3-topnav a:hover {
@@ -221,11 +206,6 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 .w3-topnav .w3-dropdown-hover a {
 	border-bottom: 0
-}
-
-.w3-topnav a {
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease
 }
 
 .w3-topnav:after {
@@ -282,49 +262,6 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	padding: 0 8px
 }
 
-.w3-third {
-	float: left;
-	width: 100%
-}
-
-.w3-third {
-	width: 99.99999%
-}
-
-/* http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
-@media only screen and (min-width:601px) {
-	.w3-third {
-		width: 33.33333%
-	}
-}
-
-@media only screen and (min-width:993px) {
-	.w3-third {
-		width: 33.33333%
-	}
-}
-
-.w3-card-2 {
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
-		rgba(0, 0, 0, 0.12) !important
-}
-
-.w3-padding {
-	padding: 8px 16px !important
-}
-
-/* http://www.w3schools.com/bootstrap/bootstrap_images.asp */
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.w3-row:after, .w3-row-padding:after {
-	content: "";
-	display: table;
-	clear: both
-}
 
 .w3-col {
 	float: left;
@@ -457,6 +394,65 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	}
 }
 
+.w3-third {
+	float: left;
+	width: 100%
+}
+
+/* http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
+@media only screen and (min-width:601px) {
+	.w3-third {
+		width: 33.33333%
+	}
+}
+
+@media only screen and (min-width:993px) {
+	.w3-third {
+		width: 33.33333%
+	}
+}
+
+.w3-twothird {
+	float: left;
+	width: 100%
+}
+
+@media only screen and (min-width:601px) {
+	.w3-twothird {
+		width: 66.66666%
+	}
+}
+
+@media only screen and (min-width:993px) {
+	.w3-twothird {
+		width: 66.66666%
+	}
+}
+
+
+.w3-card-2 {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12) !important
+}
+
+.w3-padding {
+	padding: 8px 16px !important
+}
+
+/* http://www.w3schools.com/bootstrap/bootstrap_images.asp */
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.w3-row:after, .w3-row-padding:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+
 /* http://stackoverflow.com/questions/7369216/how-do-you-read-important-in-css */
 .w3-left-align {
 	text-align: left !important
@@ -495,6 +491,7 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	opacity: 0.3
 }
 
+/* http://www.w3schools.com/cssref/sel_all.asp */
 .w3-btn.w3-disabled *, .w3-btn:disabled * {
 	pointer-events: none
 }
@@ -508,47 +505,28 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 		rgba(0, 0, 0, 0.19)
 }
 
+/* http://www.w3schools.com/css/css3_transitions.asp */
 .w3-btn {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none
+	user-select: none;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease
 }
 
 .w3-btn.w3-ripple {
 	position: relative
 }
 
-/* http://www.w3schools.com/css/css3_transitions.asp */
-.w3-btn {
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease
-}
 
-.w3-twothird {
-	float: left;
-	width: 100%
-}
 
-w3-twothird {
-	width: 99.99999%
-}
-
-@media only screen and (min-width:601px) {
-	.w3-twothird {
-		width: 66.66666%
-	}
-}
-
-@media only screen and (min-width:993px) {
-	.w3-twothird {
-		width: 66.66666%
-	}
-}
-
-/* http://www.w3schools.com/css/css_padding.asp */
+/* 
+http://www.w3schools.com/css/css_padding.asp 
+http://stackoverflow.com/questions/4459821/css-selector-what-is-it
+*/
 .w3-row-padding>.w3-twothird {
 	padding: 0 8px
 }
