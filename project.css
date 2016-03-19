@@ -1,0 +1,142 @@
+.w3-light-grey {
+	color: #000 !important;
+	background-color: #f1f1f1 !important
+}
+
+.w3-container {
+	padding: 0.01em 16px
+}
+
+// http://www.w3schools.com/cssref/sel_after.asp
+// http://colintoh.com/blog/display-table-anti-hero
+
+.w3-container:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+.w3-padding-64 {
+	padding-top: 64px !important;
+	padding-bottom: 64px !important
+}
+
+.w3-center {
+	text-align: center !important
+}
+
+// https://css-tricks.com/multiple-class-id-selectors/
+// http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
+
+.w3-topnav a {
+	text-decoration: none !important
+}
+
+.w3-topnav {
+	padding: 8px 8px
+}
+
+.w3-topnav a {
+	padding: 0 8px;
+	border-bottom: 3px solid transparent
+}
+
+.w3-topnav a:hover {
+	border-bottom: 3px solid #fff
+}
+
+.w3-topnav .w3-dropdown-hover a {
+	border-bottom: 0
+}
+
+.w3-topnav a {
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease
+}
+
+.w3-topnav:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+@media screen and (max-width:601px) {
+	.w3-topnav a {
+		display: block
+	}
+}
+
+@media screen and (max-width:601px) {
+	.w3-topnav .w3-dropdown-hover .w3-dropdown-content {
+		position: relative
+	}
+}
+
+@media screen and (max-width:601px) {
+	.w3-topnav {
+		text-align: center
+	}
+}
+
+.w3-large {
+	font-size: 18px !important
+}
+
+.w3-dark-grey {
+	color: #fff !important;
+	background-color: #616161 !important
+}
+
+.w3-margin {
+	margin: 16px !important
+}
+
+.w3-margin-bottom {
+	margin-bottom: 16px !important
+}
+
+.w3-row-padding:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+// http://techbrij.com/css-selector-adjacent-child-sibling
+.w3-row-padding, .w3-row-padding>.w3-half, .w3-row-padding>.w3-third,
+	.w3-row-padding>.w3-twothird, .w3-row-padding>.w3-quarter,
+	.w3-row-padding>.w3-col {
+	padding: 0 8px
+}
+
+.w3-third {
+	float: left;
+	width: 100%
+}
+
+.w3-third {
+	width: 99.99999%
+}
+
+// http://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+@media only screen and (min-width:601px) {
+	.w3-third {
+		width: 33.33333%
+	}
+}
+
+@media only screen and (min-width:993px) {
+	.w3-third {
+		width: 33.33333%
+	}
+}
+
+.w3-card-2 {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12) !important
+}
+
+.w3-padding {
+	padding: 8px 16px !important
+}
+
+
