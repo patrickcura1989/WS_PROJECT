@@ -203,19 +203,15 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 }
 
 .w3-topnav a {
-	text-decoration: none !important;
+	text-decoration: none !important; /* underline etc http://www.w3schools.com/cssref/pr_text_text-decoration.asp */
 	padding: 0 8px;
-	border-bottom: 3px solid transparent;
+	border-bottom: 3px solid transparent; /* http://www.w3schools.com/css/css_border.asp */
 	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease
+	transition: all 0.3s ease /* all effect changes transition 0.3 secs http://www.w3schools.com/css/css3_transitions.asp */
 }
 
 .w3-topnav a:hover {
-	border-bottom: 3px solid #fff
-}
-
-.w3-topnav .w3-dropdown-hover a {
-	border-bottom: 0
+	border-bottom: 3px solid #fff /* white underline when you hover */
 }
 
 .w3-topnav:after {
@@ -224,15 +220,10 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	clear: both
 }
 
+/* Change the background-color if the viewport is 601 pixels wide or lower http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
 @media screen and (max-width:601px) {
 	.w3-topnav a {
-		display: block
-	}
-}
-
-@media screen and (max-width:601px) {
-	.w3-topnav .w3-dropdown-hover .w3-dropdown-content {
-		position: relative
+		display: block /* when screen is small, hyperlinks act like  p tag, newline */
 	}
 }
 
@@ -242,11 +233,11 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	}
 }
 
-.w3-large {
+.w3-large { /* font size for nav bar etc */
 	font-size: 18px !important
 }
 
-.w3-dark-grey {
+.w3-dark-grey { /* colors for nav bar etc */
 	color: #fff !important;
 	background-color: #616161 !important
 }
@@ -259,11 +250,6 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	margin-bottom: 16px !important
 }
 
-.w3-row-padding:after {
-	content: "";
-	display: table;
-	clear: both
-}
 
 /* http://techbrij.com/css-selector-adjacent-child-sibling */
 .w3-row-padding, .w3-row-padding>.w3-half, .w3-row-padding>.w3-third,
@@ -274,59 +260,11 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 /* http://www.w3schools.com/w3css/w3css_responsive.asp */
 .w3-col {
-	float: left;
-	width: 100%
+	float: left; /* enables to be side by side */
+	width: 100%  /* 100 as default for small screens */
 }
 
-.w3-col.s1 {
-	width: 8.33333%
-}
-
-.w3-col.s2 {
-	width: 16.66666%
-}
-
-.w3-col.s3 {
-	width: 24.99999%
-}
-
-.w3-col.s4 {
-	width: 33.33333%
-}
-
-.w3-col.s5 {
-	width: 41.66666%
-}
-
-.w3-col.s6 {
-	width: 49.99999%
-}
-
-.w3-col.s7 {
-	width: 58.33333%
-}
-
-.w3-col.s8 {
-	width: 66.66666%
-}
-
-.w3-col.s9 {
-	width: 74.99999%
-}
-
-.w3-col.s10 {
-	width: 83.33333%
-}
-
-.w3-col.s11 {
-	width: 91.66666%
-}
-
-.w3-col.s12 {
-	width: 99.99999%
-}
-
-@media only screen and (min-width:601px) {
+@media only screen and (min-width:601px) { /* divide width by 12 */
 	.w3-col.m1 {
 		width: 8.33333%
 	}
@@ -365,52 +303,14 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	}
 }
 
-@media only screen and (min-width:993px) {
-	.w3-col.l1 {
-		width: 8.33333%
-	}
-	.w3-col.l2 {
-		width: 16.66666%
-	}
-	.w3-col.l3 {
-		width: 24.99999%
-	}
-	.w3-col.l4 {
-		width: 33.33333%
-	}
-	.w3-col.l5 {
-		width: 41.66666%
-	}
-	.w3-col.l6 {
-		width: 49.99999%
-	}
-	.w3-col.l7 {
-		width: 58.33333%
-	}
-	.w3-col.l8 {
-		width: 66.66666%
-	}
-	.w3-col.l9 {
-		width: 74.99999%
-	}
-	.w3-col.l10 {
-		width: 83.33333%
-	}
-	.w3-col.l11 {
-		width: 91.66666%
-	}
-	.w3-col.l12 {
-		width: 99.99999%
-	}
-}
-
+/* http://www.w3schools.com/w3css/w3css_responsive.asp */
 .w3-third {
-	float: left;
-	width: 100%
+	float: left; /* enables to be side by side */
+	width: 100% /* 100 as default for small screens */
 }
 
 /* http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
-@media only screen and (min-width:601px) {
+@media only screen and (min-width:601px) { /* divide width by 3 */
 	.w3-third {
 		width: 33.33333%
 	}
@@ -441,8 +341,12 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 
 .w3-card-2 {
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 
 		rgba(0, 0, 0, 0.12) !important
+		/* card double shadow grey effect 
+		   http://www.w3schools.com/cssref/css3_pr_box-shadow.asp  
+		   http://stackoverflow.com/questions/8556604/is-there-a-way-to-use-two-css3-box-shadows-on-one-element
+		 */
 }
 
 .w3-padding {
@@ -469,7 +373,7 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 }
 
 .w3-round {
-	border-radius: 4px !important
+	border-radius: 4px !important /*http://www.w3schools.com/cssref/playit.asp?filename=playcss_border-radius*/
 }
 
 .w3-white {
