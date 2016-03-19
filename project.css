@@ -7,8 +7,10 @@
 	padding: 0.01em 16px
 }
 
-// http://www.w3schools.com/cssref/sel_after.asp
-// http://colintoh.com/blog/display-table-anti-hero
+/* 
+http://www.w3schools.com/cssref/sel_after.asp
+http://colintoh.com/blog/display-table-anti-hero
+*/
 
 .w3-container:after {
 	content: "";
@@ -25,8 +27,10 @@
 	text-align: center !important
 }
 
-// https://css-tricks.com/multiple-class-id-selectors/
-// http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
+/* 
+https://css-tricks.com/multiple-class-id-selectors/
+http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm 
+*/
 
 .w3-topnav a {
 	text-decoration: none !important
@@ -101,7 +105,7 @@
 	clear: both
 }
 
-// http://techbrij.com/css-selector-adjacent-child-sibling
+/* http://techbrij.com/css-selector-adjacent-child-sibling */
 .w3-row-padding, .w3-row-padding>.w3-half, .w3-row-padding>.w3-third,
 	.w3-row-padding>.w3-twothird, .w3-row-padding>.w3-quarter,
 	.w3-row-padding>.w3-col {
@@ -117,7 +121,7 @@
 	width: 99.99999%
 }
 
-// http://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+/* http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
 @media only screen and (min-width:601px) {
 	.w3-third {
 		width: 33.33333%
@@ -139,4 +143,365 @@
 	padding: 8px 16px !important
 }
 
+/* http://www.w3schools.com/bootstrap/bootstrap_images.asp */
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
+.w3-row:after, .w3-row-padding:after {
+	content: "";
+	display: table;
+	clear: both
+}
+
+.w3-col {
+	float: left;
+	width: 100%
+}
+
+.w3-col.s1 {
+	width: 8.33333%
+}
+
+.w3-col.s2 {
+	width: 16.66666%
+}
+
+.w3-col.s3 {
+	width: 24.99999%
+}
+
+.w3-col.s4 {
+	width: 33.33333%
+}
+
+.w3-col.s5 {
+	width: 41.66666%
+}
+
+.w3-col.s6 {
+	width: 49.99999%
+}
+
+.w3-col.s7 {
+	width: 58.33333%
+}
+
+.w3-col.s8 {
+	width: 66.66666%
+}
+
+.w3-col.s9 {
+	width: 74.99999%
+}
+
+.w3-col.s10 {
+	width: 83.33333%
+}
+
+.w3-col.s11 {
+	width: 91.66666%
+}
+
+.w3-col.s12 {
+	width: 99.99999%
+}
+
+@media only screen and (min-width:601px) {
+	.w3-col.m1 {
+		width: 8.33333%
+	}
+	.w3-col.m2 {
+		width: 16.66666%
+	}
+	.w3-col.m3 {
+		width: 24.99999%
+	}
+	.w3-col.m4 {
+		width: 33.33333%
+	}
+	.w3-col.m5 {
+		width: 41.66666%
+	}
+	.w3-col.m6 {
+		width: 49.99999%
+	}
+	.w3-col.m7 {
+		width: 58.33333%
+	}
+	.w3-col.m8 {
+		width: 66.66666%
+	}
+	.w3-col.m9 {
+		width: 74.99999%
+	}
+	.w3-col.m10 {
+		width: 83.33333%
+	}
+	.w3-col.m11 {
+		width: 91.66666%
+	}
+	.w3-col.m12 {
+		width: 99.99999%
+	}
+}
+
+@media only screen and (min-width:993px) {
+	.w3-col.l1 {
+		width: 8.33333%
+	}
+	.w3-col.l2 {
+		width: 16.66666%
+	}
+	.w3-col.l3 {
+		width: 24.99999%
+	}
+	.w3-col.l4 {
+		width: 33.33333%
+	}
+	.w3-col.l5 {
+		width: 41.66666%
+	}
+	.w3-col.l6 {
+		width: 49.99999%
+	}
+	.w3-col.l7 {
+		width: 58.33333%
+	}
+	.w3-col.l8 {
+		width: 66.66666%
+	}
+	.w3-col.l9 {
+		width: 74.99999%
+	}
+	.w3-col.l10 {
+		width: 83.33333%
+	}
+	.w3-col.l11 {
+		width: 91.66666%
+	}
+	.w3-col.l12 {
+		width: 99.99999%
+	}
+}
+
+/* http://stackoverflow.com/questions/7369216/how-do-you-read-important-in-css */
+.w3-left-align {
+	text-align: left !important
+}
+
+.w3-round {
+	border-radius: 4px !important
+}
+
+.w3-white {
+	color: #000 !important;
+	background-color: #fff !important
+}
+
+.w3-right-align {
+	text-align: right !important
+}
+
+.w3-btn {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 6px 16px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none !important;
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap
+}
+
+.w3-btn.w3-disabled, .w3-btn:disabled {
+	cursor: not-allowed;
+	opacity: 0.3
+}
+
+.w3-btn.w3-disabled *, .w3-btn:disabled * {
+	pointer-events: none
+}
+
+.w3-btn.w3-disabled:hover, .w3-btn:disabled:hover {
+	box-shadow: none
+}
+
+.w3-btn:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19)
+}
+
+.w3-btn {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.w3-btn.w3-ripple {
+	position: relative
+}
+
+/* http://www.w3schools.com/css/css3_transitions.asp */
+.w3-btn {
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease
+}
+
+.w3-twothird {
+	float: left;
+	width: 100%
+}
+
+w3-twothird {
+	width: 99.99999%
+}
+
+@media only screen and (min-width:601px) {
+	.w3-twothird {
+		width: 66.66666%
+	}
+}
+
+@media only screen and (min-width:993px) {
+	.w3-twothird {
+		width: 66.66666%
+	}
+}
+
+/* http://www.w3schools.com/css/css_padding.asp */
+.w3-row-padding>.w3-twothird {
+	padding: 0 8px
+}
+
+.w3-content {
+	max-width: 980px;
+	margin: auto
+}
+
+.w3-input {
+	padding: 8px;
+	display: block;
+	border: none;
+	border-bottom: 1px solid #808080;
+	width: 100%
+}
+
+/*
+http://www.w3schools.com/cssref/sel_not.asp
+https://css-tricks.com/almanac/selectors/v/valid/
+http://stackoverflow.com/questions/10782054/what-does-the-tilde-squiggle-twiddle-css-selector-mean
+*/
+.w3-input:not (:valid )~.w3-validate {
+	color: #f44336
+}
+
+.w3-border {
+	border: 1px solid #ccc !important
+}
+
+.w3-modal-content {
+	margin: auto;
+	background-color: #fff;
+	position: relative;
+	padding: 0;
+	outline: 0;
+	width: 600px
+}
+
+@media ( max-width :601px) {
+	.w3-modal-content {
+		margin: 50px 10px 10px 10px;
+		width: auto !important
+	}
+}
+
+@media ( max-width :768px) {
+	.w3-modal-content {
+		width: 500px
+	}
+}
+
+@media ( min-width :992px) {
+	.w3-modal-content {
+		width: 900px
+	}
+}
+
+/*
+http://www.w3schools.com/cssref/css3_pr_box-shadow.asp
+http://stackoverflow.com/questions/8820565/which-css-properties-allow-comma-separated-values
+https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+*/
+.w3-card-8 {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19) !important
+}
+
+.w3-animate-zoom {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+}
+
+.w3-circle {
+	border-radius: 50% !important
+}
+
+.w3-margin-top {
+	margin-top: 16px !important
+}
+
+.w3-section {
+	margin-top: 16px;
+	margin-bottom: 16px
+}
+
+.w3-btn-block {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 6px 16px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none !important;
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap
+}
+
+.w3-btn-block.w3-disabled {
+	cursor: not-allowed;
+	opacity: 0.3
+}
+
+.w3-btn-block.w3-disabled {
+	pointer-events: none
+}
+
+.w3-btn-block.w3-disabled:hover	{
+	box-shadow: none
+}
+
+.w3-btn-block:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19)
+}
+
+.w3-btn-block {
+	width: 100%
+}
+
+/*
+http://www.w3schools.com/cssref/sel_all.asp
+*/
