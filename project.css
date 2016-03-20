@@ -390,24 +390,31 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	display: inline-block; /* inside like p outside like span http://www.w3schools.com/cssref/pr_class_display.asp */
 	outline: 0; /* outline outside border http://www.w3schools.com/cssref/tryit.asp?filename=trycss_outline */
 	padding: 6px 16px;
-	vertical-align: middle;
-	overflow: hidden;
-	text-decoration: none !important;
+	vertical-align: middle; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=middle */
+	overflow: hidden; /* hide scroll button http://www.w3schools.com/cssref/tryit.asp?filename=trycss_overflow */
+	text-decoration: none !important; /* underline etc. http://www.w3schools.com/cssref/playit.asp?filename=playcss_text-decoration&preval=underline */
 	color: #fff;
 	background-color: #000;
-	text-align: center;
+	text-align: center; /* http://www.w3schools.com/cssref/tryit.asp?filename=trycss_text-align */
 	cursor: pointer;
-	white-space: nowrap
+	white-space: nowrap; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_white-space&preval=nowrap */
+	-webkit-user-select: none; /* text can't be selected https://developer.mozilla.org/en-US/docs/Web/CSS/user-select */
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: all 0.3s ease; /* http://www.w3schools.com/css/css3_transitions.asp */
+	transition: all 0.3s ease
 }
 
-.w3-btn.w3-disabled, .w3-btn:disabled {
+.w3-btn.w3-disabled, .w3-btn:disabled { /* http://www.w3schools.com/cssref/sel_disabled.asp */
 	cursor: not-allowed;
 	opacity: 0.3
 }
 
-/* http://www.w3schools.com/cssref/sel_all.asp */
-.w3-btn.w3-disabled *, .w3-btn:disabled * {
-	pointer-events: none
+
+.w3-btn.w3-disabled *, .w3-btn:disabled * { /* http://www.w3schools.com/cssref/sel_all.asp */
+	pointer-events: none /* not clickable https://developer.mozilla.org/en/docs/Web/CSS/pointer-events */
 }
 
 .w3-btn.w3-disabled:hover, .w3-btn:disabled:hover {
@@ -416,25 +423,42 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 .w3-btn:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19) /* shadow effect when hovered */
+}
+
+.w3-btn-block {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 6px 16px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none !important;
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+	width: 100%
+}
+
+.w3-btn-block.w3-disabled {
+	cursor: not-allowed;
+	opacity: 0.3
+}
+
+.w3-btn-block.w3-disabled {
+	pointer-events: none
+}
+
+.w3-btn-block.w3-disabled:hover	{
+	box-shadow: none
+}
+
+.w3-btn-block:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19)
 }
-
-/* http://www.w3schools.com/css/css3_transitions.asp */
-.w3-btn {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease
-}
-
-.w3-btn.w3-ripple {
-	position: relative
-}
-
 
 
 /* 
@@ -447,7 +471,7 @@ http://stackoverflow.com/questions/4459821/css-selector-what-is-it
 
 .w3-content {
 	max-width: 980px;
-	margin: auto
+	margin: auto /* auto center http://www.w3schools.com/css/tryit.asp?filename=trycss_margin_auto */
 }
 
 .w3-input {
@@ -474,14 +498,14 @@ http://stackoverflow.com/questions/10782054/what-does-the-tilde-squiggle-twiddle
 .w3-modal-content {
 	margin: auto;
 	background-color: #fff;
-	position: relative;
+	position: relative; /* https://developer.mozilla.org/en/docs/Web/CSS/position */
 	padding: 0;
 	outline: 0;
 	width: 600px
 }
 
 @media ( max-width :601px) {
-	.w3-modal-content {
+	.w3-modal-content { /* resize box as the screen gets smaller */
 		margin: 50px 10px 10px 10px;
 		width: auto !important
 	}
@@ -525,43 +549,6 @@ https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
 .w3-section {
 	margin-top: 16px;
 	margin-bottom: 16px
-}
-
-.w3-btn-block {
-	border: none;
-	display: inline-block;
-	outline: 0;
-	padding: 6px 16px;
-	vertical-align: middle;
-	overflow: hidden;
-	text-decoration: none !important;
-	color: #fff;
-	background-color: #000;
-	text-align: center;
-	cursor: pointer;
-	white-space: nowrap
-}
-
-.w3-btn-block.w3-disabled {
-	cursor: not-allowed;
-	opacity: 0.3
-}
-
-.w3-btn-block.w3-disabled {
-	pointer-events: none
-}
-
-.w3-btn-block.w3-disabled:hover	{
-	box-shadow: none
-}
-
-.w3-btn-block:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-		rgba(0, 0, 0, 0.19)
-}
-
-.w3-btn-block {
-	width: 100%
 }
 
 /*
