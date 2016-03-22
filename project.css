@@ -4,16 +4,16 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box
-	/* http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+		/* http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
 	   include padding in width and height
 	 */
 }
 
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
 html {
-	-ms-text-size-adjust: 100%; 
+	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust 
+		/* https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust 
 	   for displaying text properly in smartphones 
 	   
 	   WEBKIT - https://en.wikipedia.org/wiki/WebKit
@@ -24,15 +24,31 @@ html {
 html, body {
 	font-family: Verdana, sans-serif;
 	font-size: 15px;
-	line-height: 1.5 /* similar to line spacing in ms word http://www.w3schools.com/cssref/pr_dim_line-height.asp */
+	line-height: 1.5
+		/* similar to line spacing in ms word http://www.w3schools.com/cssref/pr_dim_line-height.asp */
+}
+
+/* http://www.labnol.org/internet/embed-responsive-google-maps/28333/
+   http://www.w3schools.com/css/css_positioning.asp
+   https://css-tricks.com/absolute-positioning-inside-relative-positioning/
+ */
+.google-maps {
+	position: relative;
+	padding-bottom: 50%; /*This is the aspect ratio height : 0; */
+	overflow: hidden; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow */
+}
+#googleMap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
 }
 
 
-
 body {
-	margin: 0 
-	/* http://www.w3schools.com/css/css_margin.asp */
-	/* http://www.w3schools.com/css/css_padding.asp */
+	margin: 0 /* http://www.w3schools.com/css/css_margin.asp */ 
+		/* http://www.w3schools.com/css/css_padding.asp */
 }
 
 img {
@@ -41,7 +57,7 @@ img {
 }
 
 a {
-	-webkit-tap-highlight-color: transparent; 
+	-webkit-tap-highlight-color: transparent;
 	/* for mobile devices, can use mobile emulator in chrome to test
 	   https://developer.mozilla.org/en/docs/Web/CSS/-webkit-tap-highlight-color
 	   https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5	    
@@ -55,17 +71,21 @@ a:active, a:hover { /* http://www.w3schools.com/cssref/sel_active.asp */
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	font-weight: inherit /* http://htmldog.com/references/css/properties/font-weight/ http://www.w3schools.com/cssref/css_inherit.asp*/
+	font-weight: inherit
+		/* http://htmldog.com/references/css/properties/font-weight/ http://www.w3schools.com/cssref/css_inherit.asp*/
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Segoe UI", Arial, sans-serif; /* http://www.w3schools.com/cssref/pr_font_font-family.asp */
+	font-family: "Segoe UI", Arial, sans-serif;
+	/* http://www.w3schools.com/cssref/pr_font_font-family.asp */
 	font-weight: 400;
-	margin: 10px 0 /* top right http://www.w3schools.com/css/css_margin.asp */
+	margin: 10px 0
+		/* top right http://www.w3schools.com/css/css_margin.asp */
 }
 
 h2 {
-	font-size: 30px /* http://www.w3schools.com/cssref/pr_font_font-size.asp */
+	font-size: 30px
+		/* http://www.w3schools.com/cssref/pr_font_font-size.asp */
 }
 
 h3 {
@@ -77,14 +97,16 @@ h4 {
 }
 
 footer { /* http://www.w3schools.com/tags/tag_footer.asp */
-	display: block /* display like a p, newline http://www.w3schools.com/cssref/pr_class_display.asp */
+	display: block
+		/* display like a p, newline http://www.w3schools.com/cssref/pr_class_display.asp */
 }
 
 select { /* http://www.w3schools.com/tags/tag_select.asp */
 	color: inherit;
 	font: inherit;
 	margin: 0;
-	text-transform: none /* uppercase etc http://www.w3schools.com/cssref/pr_text_text-transform.asp */
+	text-transform: none
+		/* uppercase etc http://www.w3schools.com/cssref/pr_text_text-transform.asp */
 }
 
 input { /* http://www.w3schools.com/tags/tag_input.asp */
@@ -103,15 +125,18 @@ input { /* http://www.w3schools.com/tags/tag_input.asp */
      A B will select any B that are inside A, even if there are other elements between them.
  */
 html input[type=button], input[type=reset], input[type=submit] {
-	-webkit-appearance: button; /* https://css-tricks.com/almanac/properties/a/appearance/ https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance */
-	cursor: pointer /* http://stackoverflow.com/questions/7339333/styling-text-input-caret */
+	-webkit-appearance: button;
+	/* https://css-tricks.com/almanac/properties/a/appearance/ https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance */
+	cursor: pointer
+		/* http://stackoverflow.com/questions/7339333/styling-text-input-caret */
 }
 
 html input[disabled] {
 	cursor: default
 }
 
-input::-moz-focus-inner {/* https://www.w3.org/community/webed/wiki/Advanced_CSS_selectors#CSS3_pseudo-element_double_colon_syntax  https://css-tricks.com/forums/topic/button-padding-issue/ */
+input::-moz-focus-inner {
+	/* https://www.w3.org/community/webed/wiki/Advanced_CSS_selectors#CSS3_pseudo-element_double_colon_syntax  https://css-tricks.com/forums/topic/button-padding-issue/ */
 	border: 0;
 	padding: 0
 }
@@ -121,7 +146,8 @@ input[type=checkbox], input[type=radio] {
 }
 
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
-	{ /* https://css-tricks.com/snippets/css/turn-off-number-input-spinners/ */
+	{
+	/* https://css-tricks.com/snippets/css/turn-off-number-input-spinners/ */
 	height: auto
 }
 
@@ -135,12 +161,12 @@ button {
 	cursor: pointer
 }
 
-
 button[disabled] {
 	cursor: default
 }
 
-button::-moz-focus-inner { /* for consistency https://css-tricks.com/forums/topic/button-padding-issue/ */
+button::-moz-focus-inner {
+	/* for consistency https://css-tricks.com/forums/topic/button-padding-issue/ */
 	border: 0;
 	padding: 0
 }
@@ -152,20 +178,17 @@ textarea {
 }
 
 textarea {
-	overflow: auto /* for auto hide scroll bar https://css-tricks.com/textarea-tricks/ */
+	overflow: auto
+		/* for auto hide scroll bar https://css-tricks.com/textarea-tricks/ */
 }
 
 b {
 	font-weight: bold
 }
 
-
-
-
-
-
 .w3-light-grey {
-	color: #000 !important; /* important = property won't be changed https://css-tricks.com/when-using-important-is-the-right-choice/ */
+	color: #000 !important;
+	/* important = property won't be changed https://css-tricks.com/when-using-important-is-the-right-choice/ */
 	background-color: #f1f1f1 !important
 }
 
@@ -180,8 +203,10 @@ http://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp
 */
 .w3-container:after {
 	content: ""; /* http://www.w3schools.com/cssref/pr_gen_content.asp */
-	display: table; /* behave like a table http://www.w3schools.com/cssref/pr_class_display.asp */
-	clear: both /* No floating elements allowed on either the left or the right side http://www.w3schools.com/cssref/tryit.asp?filename=trycss_class-clear */
+	display: table;
+	/* behave like a table http://www.w3schools.com/cssref/pr_class_display.asp */
+	clear: both
+		/* No floating elements allowed on either the left or the right side http://www.w3schools.com/cssref/tryit.asp?filename=trycss_class-clear */
 }
 
 .w3-padding-64 {
@@ -197,17 +222,19 @@ http://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp
 https://css-tricks.com/multiple-class-id-selectors/
 http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm 
 */
-
 .w3-topnav {
 	padding: 8px 8px
 }
 
 .w3-topnav a {
-	text-decoration: none !important; /* underline etc http://www.w3schools.com/cssref/pr_text_text-decoration.asp */
+	text-decoration: none !important;
+	/* underline etc http://www.w3schools.com/cssref/pr_text_text-decoration.asp */
 	padding: 0 8px;
-	border-bottom: 3px solid transparent; /* http://www.w3schools.com/css/css_border.asp */
+	border-bottom: 3px solid transparent;
+	/* http://www.w3schools.com/css/css_border.asp */
 	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease /* all effect changes transition 0.3 secs http://www.w3schools.com/css/css3_transitions.asp */
+	transition: all 0.3s ease
+		/* all effect changes transition 0.3 secs http://www.w3schools.com/css/css3_transitions.asp */
 }
 
 .w3-topnav a:hover {
@@ -223,7 +250,8 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 /* Change the background-color if the viewport is 601 pixels wide or lower http://www.w3schools.com/cssref/css3_pr_mediaquery.asp */
 @media screen and (max-width:601px) {
 	.w3-topnav a {
-		display: block /* when screen is small, hyperlinks act like  p tag, newline */
+		display: block
+			/* when screen is small, hyperlinks act like  p tag, newline */
 	}
 }
 
@@ -250,7 +278,6 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	margin-bottom: 16px !important
 }
 
-
 /* http://techbrij.com/css-selector-adjacent-child-sibling */
 .w3-row-padding, .w3-row-padding>.w3-half, .w3-row-padding>.w3-third,
 	.w3-row-padding>.w3-twothird, .w3-row-padding>.w3-quarter,
@@ -261,7 +288,7 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 /* http://www.w3schools.com/w3css/w3css_responsive.asp */
 .w3-col {
 	float: left; /* enables to be side by side */
-	width: 100%  /* 100 as default for small screens */
+	width: 100% /* 100 as default for small screens */
 }
 
 @media only screen and (min-width:601px) { /* divide width by 12 */
@@ -339,11 +366,9 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	}
 }
 
-
 .w3-card-2 {
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 
-		rgba(0, 0, 0, 0.12) !important
-		/* card double shadow grey effect 
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12) !important /* card double shadow grey effect 
 		   http://www.w3schools.com/cssref/css3_pr_box-shadow.asp  
 		   http://stackoverflow.com/questions/8556604/is-there-a-way-to-use-two-css3-box-shadows-on-one-element
 		 */
@@ -355,9 +380,9 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 /* http://www.w3schools.com/bootstrap/bootstrap_images.asp */
 .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 .w3-row:after, .w3-row-padding:after {
@@ -366,14 +391,14 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	clear: both
 }
 
-
 /* http://stackoverflow.com/questions/7369216/how-do-you-read-important-in-css */
 .w3-left-align {
 	text-align: left !important
 }
 
 .w3-round {
-	border-radius: 4px !important /*http://www.w3schools.com/cssref/playit.asp?filename=playcss_border-radius*/
+	border-radius: 4px !important
+		/*http://www.w3schools.com/cssref/playit.asp?filename=playcss_border-radius*/
 }
 
 .w3-white {
@@ -387,34 +412,45 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 
 .w3-btn {
 	border: none;
-	display: inline-block; /* inside like p outside like span http://www.w3schools.com/cssref/pr_class_display.asp */
-	outline: 0; /* outline outside border http://www.w3schools.com/cssref/tryit.asp?filename=trycss_outline */
+	display: inline-block;
+	/* inside like p outside like span http://www.w3schools.com/cssref/pr_class_display.asp */
+	outline: 0;
+	/* outline outside border http://www.w3schools.com/cssref/tryit.asp?filename=trycss_outline */
 	padding: 6px 16px;
-	vertical-align: middle; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=middle */
-	overflow: hidden; /* hide scroll button http://www.w3schools.com/cssref/tryit.asp?filename=trycss_overflow */
-	text-decoration: none !important; /* underline etc. http://www.w3schools.com/cssref/playit.asp?filename=playcss_text-decoration&preval=underline */
+	vertical-align: middle;
+	/* http://www.w3schools.com/cssref/playit.asp?filename=playcss_vertical-align&preval=middle */
+	overflow: hidden;
+	/* hide scroll button http://www.w3schools.com/cssref/tryit.asp?filename=trycss_overflow */
+	text-decoration: none !important;
+	/* underline etc. http://www.w3schools.com/cssref/playit.asp?filename=playcss_text-decoration&preval=underline */
 	color: #fff;
 	background-color: #000;
-	text-align: center; /* http://www.w3schools.com/cssref/tryit.asp?filename=trycss_text-align */
+	text-align: center;
+	/* http://www.w3schools.com/cssref/tryit.asp?filename=trycss_text-align */
 	cursor: pointer;
-	white-space: nowrap; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_white-space&preval=nowrap */
-	-webkit-user-select: none; /* text can't be selected https://developer.mozilla.org/en-US/docs/Web/CSS/user-select */
+	white-space: nowrap;
+	/* http://www.w3schools.com/cssref/playit.asp?filename=playcss_white-space&preval=nowrap */
+	-webkit-user-select: none;
+	/* text can't be selected https://developer.mozilla.org/en-US/docs/Web/CSS/user-select */
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	-webkit-transition: all 0.3s ease; /* http://www.w3schools.com/css/css3_transitions.asp */
+	-webkit-transition: all 0.3s ease;
+	/* http://www.w3schools.com/css/css3_transitions.asp */
 	transition: all 0.3s ease
 }
 
-.w3-btn.w3-disabled, .w3-btn:disabled { /* http://www.w3schools.com/cssref/sel_disabled.asp */
+.w3-btn.w3-disabled, .w3-btn:disabled {
+	/* http://www.w3schools.com/cssref/sel_disabled.asp */
 	cursor: not-allowed;
 	opacity: 0.3
 }
 
-
-.w3-btn.w3-disabled *, .w3-btn:disabled * { /* http://www.w3schools.com/cssref/sel_all.asp */
-	pointer-events: none /* not clickable https://developer.mozilla.org/en/docs/Web/CSS/pointer-events */
+.w3-btn.w3-disabled *, .w3-btn:disabled * {
+	/* http://www.w3schools.com/cssref/sel_all.asp */
+	pointer-events: none
+		/* not clickable https://developer.mozilla.org/en/docs/Web/CSS/pointer-events */
 }
 
 .w3-btn.w3-disabled:hover, .w3-btn:disabled:hover {
@@ -451,7 +487,7 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	pointer-events: none
 }
 
-.w3-btn-block.w3-disabled:hover	{
+.w3-btn-block.w3-disabled:hover {
 	box-shadow: none
 }
 
@@ -459,7 +495,6 @@ http://webdesign.about.com/od/cssselectors/f/comma-in-css-selectors.htm
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 		rgba(0, 0, 0, 0.19)
 }
-
 
 /* 
 http://www.w3schools.com/css/css_padding.asp 
@@ -471,7 +506,8 @@ http://stackoverflow.com/questions/4459821/css-selector-what-is-it
 
 .w3-content {
 	max-width: 980px;
-	margin: auto /* auto center http://www.w3schools.com/css/tryit.asp?filename=trycss_margin_auto */
+	margin: auto
+		/* auto center http://www.w3schools.com/css/tryit.asp?filename=trycss_margin_auto */
 }
 
 .w3-input {
@@ -498,7 +534,8 @@ http://stackoverflow.com/questions/10782054/what-does-the-tilde-squiggle-twiddle
 .w3-modal-content {
 	margin: auto;
 	background-color: #fff;
-	position: relative; /* https://developer.mozilla.org/en/docs/Web/CSS/position */
+	position: relative;
+	/* https://developer.mozilla.org/en/docs/Web/CSS/position */
 	padding: 0;
 	outline: 0;
 	width: 600px

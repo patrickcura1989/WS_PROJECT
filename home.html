@@ -1,98 +1,97 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type"
-              content="text/html; charset=windows-1252">
-        <title>Buy &amp; Sell Used Cars</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--https://css-tricks.com/snippets/html/responsive-meta-tag/-->
-        <link rel="stylesheet" href="project.css">
-    </head>
-    <body>
+<head>
+<meta http-equiv="content-type"
+	content="text/html; charset=windows-1252">
+<title>Buy &amp; Sell Used Cars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--https://css-tricks.com/snippets/html/responsive-meta-tag/-->
+<link rel="stylesheet" href="project.css">
+<script src="http://maps.googleapis.com/maps/api/js">
+	
+</script>
 
-        <div class="w3-light-grey w3-container w3-padding-64 w3-center">
-            <img
-                src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
-        </div>
+<script>
+	var myCenter = new google.maps.LatLng(-41.2244744, 174.8817894, 17);
 
-        <div class="w3-topnav w3-large w3-center w3-dark-grey">
-            <a href="home.html">Home</a> <a href="findACar.html">Find A Car</a> <a
-                href="sellACar.html">Sell A Car</a> <a href="register.html">Register</a>
-            <a href="login.html">Sign-In</a> <a href="myProfile.html">My Profile</a>
-        </div>
+	function initialize() {
+		var mapProp = {
+			center : myCenter,
+			zoom : 15,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
 
-        <div class="w3-container w3-margin w3-center w3-margin-bottom">
-            <div class="w3-row-padding">
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>2008 Audi A5</h3>
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5203298/026564/large/lg_026564_1.jpg"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$28,995</p>
-                    </div>
-                </div>
+		var map = new google.maps.Map(document.getElementById("googleMap"),
+				mapProp);
 
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>2011 Holden Colorado</h3>
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5007632/14210/large/lg_14210_1.jpg"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$27,990</p>
-                    </div>
-                </div>
+		var marker = new google.maps.Marker({
+			position : myCenter,
+		});
 
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>2012 Holden Commodore</h3>
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5191880/501736/large/lg_501736_1.jpg"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$29,995</p>
-                    </div>
-                </div>
-            </div>
-            <br>
+		marker.setMap(map);
 
-            <div class="w3-row-padding">
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>2000 Honda Odyssey</h3>
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5054149/CGK827/large/lg_CGK827_1.jpg"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$3,499</p>
-                    </div>
-                </div>
+		var infowindow = new google.maps.InfoWindow({
+			content : "21 Kensington Ave, Petone, Lower Hutt 5012"
+		});
 
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>2015 Ford Ranger</h3>
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5008821/33303/large/lg_33303_1.jpg"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$43,873</p>
-                    </div>
-                </div>
+		infowindow.open(map, marker);
+	}
 
-                <div class="w3-third">
-                    <div class="w3-card-2 w3-light-grey w3-padding">
-                        <h3>1969 Holden Monaro</h3>
-                        <img
-                            src="http://www.autotrader.co.nz/sell-your-car/showphoto/255821377?size=Large"
-                            class="img-responsive" style="width: 100%" alt="Image">
-                        <p>$80,000</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+<body>
 
-        <footer class="w3-container w3-center w3-dark-grey">
-            <p>© 2016 All Rights Reserved Wellington Institute of Technology
-                (WelTec)</p>
-        </footer>
+	<div class="w3-light-grey w3-container w3-padding-64 w3-center">
+		<img
+			src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
+	</div>
 
+	<div class="w3-topnav w3-large w3-center w3-dark-grey">
+		<a href="home.html">Home</a> <a href="findACar.html">Find A Car</a> <a
+			href="sellACar.html">Sell A Car</a> <a href="register.html">Register</a>
+		<a href="login.html">Sign-In</a> <a href="myProfile.html">My
+			Profile</a>
+	</div>
+
+	<div class="w3-content">
+		<div class="w3-row w3-margin">
+			<div class="w3-container">
+				<h2>Mission Statement</h2>
+				<p>Our mission at AutoMate is to be your No. 1, no hassle go to
+					companion for your used car buying and selling needs. It is free to
+					post and view ads of cars. Just register to the site, sign-in and
+					type in the details of the car you want to sell. To buy a car, just
+					go to the find a car page use the filter options or just type in
+					the search bar to see results. No memberships and fees needed. Just
+					contact the seller and you are good to go.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="w3-center">
+		<h2>Company Location</h2>
+	</div>
+
+	<div class="w3-content">
+		<div class="w3-row w3-margin">
+			<div class="w3-container">
+				<!-- http://www.w3schools.com/googleapi/google_maps_overlays.asp -->
+				<div class="google-maps">
+					<div id="googleMap"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<footer class="w3-container w3-center w3-dark-grey">
+		<p>© 2016 All Rights Reserved Wellington Institute of Technology
+			(WelTec)</p>
+	</footer>
 
 
-    </body>
+
+</body>
 </html>

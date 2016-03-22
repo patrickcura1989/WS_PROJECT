@@ -1,3 +1,22 @@
+/* http://www.labnol.org/internet/embed-responsive-google-maps/28333/
+   http://www.w3schools.com/css/css_positioning.asp
+   https://css-tricks.com/absolute-positioning-inside-relative-positioning/
+ */
+.google-maps {
+	position: relative;
+	padding-bottom: 50%; /*This is the aspect ratio height : 0; */
+	overflow: hidden;
+	/* http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow */
+}
+#googleMap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+
 html {
 	box-sizing: border-box;
 	font-family: Verdana, sans-serif;
@@ -11,14 +30,13 @@ body {
 
 a {
 	color: inherit;
-	background: transparent;
 }
 
 footer {
 	color: #fff !important;
 	background-color: #616161 !important;
 	text-align: center !important;
-	padding: 0.01em 16px;
+	padding: 0.01em 16px; /* put some space between bottom and top */
 	display: block;
 }
 
@@ -40,8 +58,21 @@ footer {
 }
 
 .navBar a {
-	transition: all 0.3s ease;
 	padding: 0 8px;
 	border-bottom: 3px solid transparent;
-	text-decoration: none !important;
+	text-decoration: none !important; /* remove underline of hyperlink */
+}
+
+.mission {
+	max-width: 980px;
+	margin: auto;
+}
+
+.companyLocation {
+	text-align: center
+}
+
+.map {
+	max-width: 980px;
+	margin: auto;
 }
