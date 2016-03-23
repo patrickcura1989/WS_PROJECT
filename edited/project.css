@@ -8,6 +8,7 @@
 	overflow: hidden;
 	/* http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow */
 }
+
 #googleMap {
 	position: absolute;
 	top: 0;
@@ -15,7 +16,6 @@
 	width: 100% !important;
 	height: 100% !important;
 }
-
 
 html {
 	box-sizing: border-box;
@@ -44,8 +44,8 @@ footer {
 	color: #000 !important;
 	background-color: #f1f1f1 !important;
 	padding: 0.01em 16px;
-	padding-top: 64px !important;
-	padding-bottom: 64px !important;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
 	text-align: center !important;
 }
 
@@ -68,7 +68,7 @@ footer {
 	margin: auto;
 }
 
-.companyLocation {
+.center {
 	text-align: center
 }
 
@@ -76,3 +76,51 @@ footer {
 	max-width: 980px;
 	margin: auto;
 }
+
+.body {
+	text-align: center;
+	padding: 0.01em 16px;
+}
+
+.findACarSearchBox {
+	width: 24.99999%; /* separate the page into 25 and 75 to fit the box and results*/
+	text-align: left;
+	float: left; /* float allows the box and results to be placed side by side */
+}
+
+.findACarResults {
+	width: 74.99999%;
+	float: left
+}
+
+.margin {
+	margin: 16px;
+}
+
+.detailsImage {
+	width: 33.33333%;
+	float: left;
+}
+
+.details {
+	width: 66.66666%;
+	float: left;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+.clear {
+	clear: both;
+	/* handle floating elements http://www.w3schools.com/css/css_float.asp */
+}
+
+.detailsBox {
+	margin: 16px !important;
+}
+
