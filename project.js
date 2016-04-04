@@ -26,8 +26,8 @@ function validateFields() {
 
     if (firstName.value == "") 
     {
-        fld.style.background = 'Yellow';
-        error = "You didn't enter a username.\n";
+        alert(firstName.getAttribute("name")+ " is required" );
+        return false;
     } 
     else if ((fld.value.length < 5) || (fld.value.length > 15)) 
     {
