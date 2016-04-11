@@ -12,12 +12,13 @@
  * http://www.w3schools.com/jsref/jsref_regexp_g.asp
  * http://www.w3resource.com/javascript/form/phone-no-validation.php
  * http://www.regexpal.com/
+ * http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+ * http://www.formget.com/form-validation-using-javascript/
+ * http://www.w3schools.com/jsref/jsref_obj_regexp.asp
  */
 
-function validateFields()
+function validateRegisterFields()
 {
-    //var illegalChars = /\W/; // allow letters, numbers, and underscores
-
     var firstName = document.getElementById('firstName');
     var lastName = document.getElementById('lastName');
     var address = document.getElementById('address');
@@ -59,23 +60,10 @@ function validateFields()
     {
         return false;
     }
-
-    /*
-     if ((fld.value.length < 5) || (fld.value.length > 15))
-     {
-     fld.style.background = 'Yellow';
-     error = "The username is the wrong length.\n";
-     }
-     else if (illegalChars.test(fld.value))
-     {
-     fld.style.background = 'Yellow';
-     error = "The username contains illegal characters.\n";
-     }
-     else
-     {
-     fld.style.background = 'White';
-     }
-     */
+    if (!validateEmail(emailAddress))
+    {
+        return false;
+    }
 
     return true;
 }
@@ -114,4 +102,91 @@ function validatePhoneNumber(field)
             return false;
         }
     }
-}  
+}
+
+function validateLoginFields()
+{
+    var username = document.getElementById('username');
+    var password = document.getElementById('password');
+
+    if (!validateRequired(username))
+    {
+        return false;
+    }
+    if (!validateRequired(password))
+    {
+        return false;
+    }
+
+    if(username.value == "patrick" && password.value == "cura")
+    {
+        window.location.assign("myProfile.html");
+    }
+    else
+    {
+        alert("Username Password combination not in the database")
+        username.value = "";
+        password.value = "";
+        username.style.backgroundColor = "";
+        username.style.color = "";
+        password.style.backgroundColor = "";
+        password.style.color = "";
+        username.focus();
+        return false;
+    }
+
+    return true;
+}
+
+function setStyle1()
+{
+    var username = document.getElementById("username");
+    if (username.value == "")
+    {
+        username.style.backgroundColor = "yellow";
+        username.style.color = "red";
+    }
+    else
+    {
+        username.style.backgroundColor = "";
+        username.style.color = "";
+    }
+}
+
+function setStyle2()
+{
+    var password = document.getElementById("password");
+    if (password.value == "")
+    {
+        password.style.backgroundColor = "yellow";
+        password.style.color = "red";
+    }
+    else
+    {
+        password.style.backgroundColor = "";
+        password.style.color = "";
+    }
+}
+
+function setStyleFocus(id)
+{
+    var field = document.getElementById(id);
+    field.style.backgroundColor = "";
+    field.style.color = "";
+}
+
+function validateEmail(emailAddress)
+{
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (!filter.test(emailAddress.value))
+    {
+        alert('Please provide a valid email address');
+        emailAddress.focus;
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
