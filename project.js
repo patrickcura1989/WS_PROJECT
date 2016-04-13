@@ -15,6 +15,7 @@
  * http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
  * http://www.formget.com/form-validation-using-javascript/
  * http://www.w3schools.com/jsref/jsref_obj_regexp.asp
+ * http://stackoverflow.com/questions/11352870/regular-expression-to-match-specific-string
  */
 
 function validateRegisterFields()
@@ -177,7 +178,7 @@ function setStyleFocus(id)
 
 function validateEmail(emailAddress)
 {
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var filter = /\S+@\S+\.(com|net|my)+/;
 
     if (!filter.test(emailAddress.value))
     {
