@@ -16,52 +16,54 @@
  * http://www.formget.com/form-validation-using-javascript/
  * http://www.w3schools.com/jsref/jsref_obj_regexp.asp
  * http://stackoverflow.com/questions/11352870/regular-expression-to-match-specific-string
+ * http://stackoverflow.com/questions/4745112/javascript-regex-for-alphanumeric-string-with-length-of-3-5-chars
  */
 
-function validateRegisterFields()
+function validateRegisterFields(form)
 {
-    var firstName = document.getElementById('firstName');
-    var lastName = document.getElementById('lastName');
-    var address = document.getElementById('address');
-    var phoneNumber = document.getElementById('phoneNumber');
-    var emailAddress = document.getElementById('emailAddress');
-    var username = document.getElementById('username');
-    var password = document.getElementById('password');
-
-    if (!validateRequired(firstName))
+    if (!validateRequired(form.firstName))
     {
         return false;
     }
-    if (!validateRequired(lastName))
+    if (!validateRequired(form.lastName))
     {
         return false;
     }
-    if (!validateRequired(address))
+    if (!validateRequired(form.address))
     {
         return false;
     }
-    if (!validateRequired(phoneNumber))
+    if (!validateRequired(form.phoneNumber))
     {
         return false;
     }
-    if (!validateRequired(emailAddress))
+    if (!validateRequired(form.emailAddress))
     {
         return false;
     }
-    if (!validateRequired(username))
+    if (!validateRequired(form.username))
     {
         return false;
     }
-    if (!validateRequired(password))
+    if (!validateRequired(form.password))
     {
         return false;
     }
 
-    if (!validatePhoneNumber(phoneNumber))
+    if (!validatePhoneNumber(form.phoneNumber))
     {
         return false;
     }
-    if (!validateEmail(emailAddress))
+    if (!validateEmail(form.emailAddress))
+    {
+        return false;
+    }
+    
+    if (!validateUsernamePassword(form.username))
+    {
+        return false;
+    }
+    if (!validateUsernamePassword(form.password))
     {
         return false;
     }
@@ -184,6 +186,22 @@ function validateEmail(emailAddress)
     {
         alert('Please provide a valid email address');
         emailAddress.focus;
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function validateUsernamePassword(field)
+{
+    var filter = /^([a-zA-Z0-9_-]){6,}$/;
+
+    if (!filter.test(field.value))
+    {
+        alert('Please provide a valid: ' + field.getAttribute("name"));
+        field.focus;
         return false;
     }
     else
