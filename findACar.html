@@ -6,6 +6,7 @@
         <title>Buy &amp; Sell Used Cars</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="project.css">
+        <script src="project.js"></script>
     </head>
     <body>
 
@@ -33,9 +34,9 @@
                             <p>Search for a Car</p>
                         </div>
 
-                        <form class="w3-container">
+                        <form class="w3-container" onsubmit="return validateSellFields(this)" action="findACar.html">
                             <p>Fuel Type</p>
-                            <select><option value="">Cars by Fuel Type</option>
+                            <select id="fuelType" name="Fuel Type"><option value="">Cars by Fuel Type</option>
                                 <option value="diesel">Diesel (3439)</option>
                                 <option value="dual fuel">Dual Fuel (3)</option>
                                 <option value="electric">Electric (22)</option>
@@ -46,7 +47,7 @@
                             </select>
 
                             <p>Make</p>
-                            <select><option value="">Cars by Make</option>
+                            <select id="make" name="Make"><option value="">Cars by Make</option>
                                 <option value="ac">AC (1)</option>
                                 <option value="accessories">Accessories (1)</option>
                                 <option value="alfa romeo">Alfa Romeo (45)</option>
@@ -64,7 +65,7 @@
                             </select>
 
                             <p>Model/Body</p>
-                            <select><option value="">Cars by Body Type</option>
+                            <select id="bodyType" name="Model Body Type"><option value="">Cars by Body Type</option>
                                 <option value="4x4">4X4 (182)</option>
                                 <option value="convertible">Convertible (249)</option>
                                 <option value="coupe">Coupe (609)</option>
@@ -82,7 +83,7 @@
                             </select>
 
                             <p>Year</p>
-                            <select><option value="">Any</option>
+                            <select id="yearFrom" name="From Year"><option value="">Any</option>
                                 <option value="1950">1950</option>
                                 <option value="1960">1960</option>
                                 <option value="1970">1970</option>
@@ -108,7 +109,7 @@
                                 <option value="2014">2014</option>
                                 <option value="2015">2015</option>
                                 <option value="2016">2016</option>
-                            </select><span>to</span><select><option value="">Any</option>
+                            </select><span>to</span><select id="yearTo" name="Year To"><option value="">Any</option>
                                 <option value="1950">1950</option>
                                 <option value="1960">1960</option>
                                 <option value="1970">1970</option>
@@ -137,7 +138,7 @@
                             </select>
 
                             <p>Price</p>
-                            <select><option value="">Any</option>
+                            <select id="priceFrom" name="Price From"><option value="">Any</option>
                                 <option value="2500">2500</option>
                                 <option value="5000">5000</option>
                                 <option value="7500">7500</option>
@@ -155,7 +156,7 @@
                                 <option value="100000">100000</option>
                                 <option value="150000">150000</option>
                                 <option value="200000">200000</option>
-                            </select><span>to</span><select><option value="">Any</option>
+                            </select><span>to</span><select id="priceTo" name="Price To"><option value="">Any</option>
                                 <option value="2500">2500</option>
                                 <option value="5000">5000</option>
                                 <option value="7500">7500</option>
@@ -185,11 +186,11 @@
 
 
                             <p>Keywords</p>
-                            <input value="" type="text">
+                            <input id="keywords" name="Keywords" value="" type="text">
 
                             <div class="w3-right-align">
                                 <p>
-                                    <button class="w3-btn w3-dark-grey">FIND MY CAR</button>
+                                    <input class="w3-btn w3-dark-grey" value="FIND MY CAR" type="submit">
                                 </p>
                             </div>
 

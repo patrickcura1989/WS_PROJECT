@@ -17,6 +17,8 @@
  * http://www.w3schools.com/jsref/jsref_obj_regexp.asp
  * http://stackoverflow.com/questions/11352870/regular-expression-to-match-specific-string
  * http://stackoverflow.com/questions/4745112/javascript-regex-for-alphanumeric-string-with-length-of-3-5-chars
+ * http://stackoverflow.com/questions/3303064/pass-javascript-variables-to-form-input-fields-as-onsubmit-href-link
+ * https://www.sitepoint.com/community/t/validation-check-to-make-sure-at-least-one-field-is-filled-out/2329
  */
 
 function validateRegisterFields(form)
@@ -58,7 +60,7 @@ function validateRegisterFields(form)
     {
         return false;
     }
-    
+
     if (!validateUsernamePassword(form.username))
     {
         return false;
@@ -121,7 +123,7 @@ function validateLoginFields()
         return false;
     }
 
-    if(username.value == "patrick" && password.value == "cura")
+    if (username.value == "patrick" && password.value == "cura")
     {
         window.location.assign("myProfile.html");
     }
@@ -208,4 +210,28 @@ function validateUsernamePassword(field)
     {
         return true;
     }
+}
+
+function validateSellFields(form)
+{
+
+    if (form.fuelType.selectedIndex == 0 &&
+            form.make.selectedIndex == 0 &&
+            form.bodyType.selectedIndex == 0 &&
+            form.yearFrom.selectedIndex == 0 &&
+            form.yearTo.selectedIndex == 0 &&
+            form.priceFrom.selectedIndex == 0 &&
+            form.priceTo.selectedIndex == 0 &&
+            form.keywords.value == ""
+            )
+    {
+        alert("You need to complete at least 1 field to conduct a search");
+        return false;
+    }
+    else
+    {
+        
+        return true;
+    }
+    
 }
