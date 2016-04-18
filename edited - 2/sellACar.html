@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type"
+	content="text/html; charset=windows-1252">
+<title>Buy &amp; Sell Used Cars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="project.css">
+<script src="project.js"></script>
+</head>
+<body>
+
+	<div class="headPart">
+		<img
+			src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
+	</div>
+
+	<div class="navBar">
+		<a href="home.html">Home</a> <a href="findACar.html">Find A Car</a> <a
+			href="sellACar.html">Sell A Car</a> <a href="register.html">Register</a>
+		<a href="login.html">Sign-In</a> <a href="myProfile.html">My
+			Profile</a>
+	</div>
+
+	<br>
+
+	<div class="box">
+		<!-- div class="boxShadow"-->
+			<h2>Sell Your Car</h2>
+
+			<form onsubmit="return validateSellACarFields(this)" action="myProfile.html">
+
+				<p>Car Name</p>
+				<input value="" id="carName" name="Car Name" type="text" style="width: 100%">
+
+				<p>Fuel Type</p>
+				<input value="" id="fuelType" name="Fuel Type" type="text" style="width: 100%">
+
+				<p>Make</p>
+				<input value="" id="make" name="Make" type="text" style="width: 100%">
+
+				<p>Model/Body</p>
+				<input value="" id="body" name="Body" type="text" style="width: 100%">
+
+				<p>Year</p>
+				<input value="" id="year" name="Year"  type="text" style="width: 100%">
+
+				<p>Price</p>
+				<input value="" id="price" name="Price" type="text" style="width: 100%">
+
+				<p>URL to Image</p>
+				<input value="" id="imageURL" name="Image URL" type="text" style="width: 100%">
+
+				<p>Car Description</p>
+				<p>
+					<textarea style="height: 200px; width: 100%" id="description" name="Car Description"
+						placeholder="Please Describe the Car you are Selling.."></textarea>
+				</p>
+
+				<div class="alignRight">
+					<p>
+						<input class="w3-btn w3-dark-grey" value="SELL MY CAR" type="submit" >
+					</p>
+				</div>
+
+			</form>
+		<!-- /div-->
+	</div>
+
+	<br>
+
+	<footer>
+		<p>© 2016 All Rights Reserved Wellington Institute of Technology
+			(WelTec)</p>
+	</footer>
+
+
+
+</body>
+</html>
