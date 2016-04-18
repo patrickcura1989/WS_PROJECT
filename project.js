@@ -73,6 +73,40 @@ function validateRegisterFields(form)
     return true;
 }
 
+function validateSellACarFields(form)
+{
+    if (!validateRequired(form.carName))
+    {
+        return false;
+    }
+    if (!validateRequired(form.fuelType))
+    {
+        return false;
+    }
+    if (!validateRequired(form.make))
+    {
+        return false;
+    }
+    if (!validateRequired(form.body))
+    {
+        return false;
+    }
+    if (!validateRequired(form.year))
+    {
+        return false;
+    }
+    if (!validateRequired(form.price))
+    {
+        return false;
+    }
+    if (!validateRequired(form.description))
+    {
+        return false;
+    }
+
+    return true;
+}
+
 function validateRequired(field)
 {
     if (field.value == "")
