@@ -216,7 +216,7 @@ function setStyleFocus(id)
 
 function validateEmail(emailAddress)
 {
-    var filter = /\S+@\S+\.(com|net|my)+/;
+    var filter = /^\S+@\S+\.(com|net|my)+$/;
 
     if (!filter.test(emailAddress.value))
     {
