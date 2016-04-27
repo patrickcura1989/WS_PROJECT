@@ -20,7 +20,7 @@ include_once 'header.php';
 
                         <div class="w3-container">
                             <div class="w3-section">
-                                <form onsubmit="return validateRegisterFields(this)" action="myProfile.php" method="GET">                                    
+                                <form onsubmit="return validateRegisterFields(this)" action="myProfile.php" method="POST">                                    
                                     <label><b>First Name</b></label> 
                                     <input class="w3-input w3-border w3-margin-bottom" id="firstName" name="First Name" placeholder="Enter your First Name" type="text"> 
 

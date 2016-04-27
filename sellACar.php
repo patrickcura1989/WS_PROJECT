@@ -13,7 +13,7 @@ include_once 'header.php';
                 </div>
 
                 <div class="w3-container">
-                    <form onsubmit="return validateSellACarFields(this)" action="myProfile.html">
+                    <form onsubmit="return validateSellACarFields(this)" action="myProfile.php" method="POST">
                         <p>Car Name</p>
                         <input value="" id="carName" name="Car Name" type="text">
 
