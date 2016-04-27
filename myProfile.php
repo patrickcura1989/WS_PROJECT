@@ -1,6 +1,11 @@
 <?php
 // http://www.w3schools.com/php/php_mysql_insert.asp
 // http://www.tutorialrepublic.com/php-tutorial/php-mysql-insert-query.php
+// http://stackoverflow.com/questions/8247001/best-practice-for-html-head-in-php
+
+session_start();
+include_once 'header.php';
+
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
   server with default setting (user 'root' with no password) */
@@ -39,27 +44,6 @@ else
 mysqli_close($link);
 
 ?>
-
-<html>
-    <head>
-        <meta http-equiv="content-type"
-              content="text/html; charset=windows-1252">
-        <title>Buy &amp; Sell Used Cars</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="project.css">
-    </head>
-    <body>
-
-        <div class="w3-light-grey w3-container w3-padding-64 w3-center">
-            <img
-                src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
-        </div>
-
-        <div class="w3-topnav w3-large w3-center w3-dark-grey">
-            <a href="home.html">Home</a> <a href="findACar.html">Find A Car</a> <a
-                href="sellACar.html">Sell A Car</a> <a href="register.html">Register</a>
-            <a href="login.html">Sign-In</a> <a href="myProfile.html">My Profile</a>
-        </div>
 
         <br>
 

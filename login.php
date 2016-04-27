@@ -1,24 +1,7 @@
-<html>
-    <head>
-        <meta http-equiv="content-type"
-              content="text/html; charset=windows-1252">
-        <title>Buy &amp; Sell Used Cars</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="project.css">
-        <script src="project.js"></script>
-    </head>
-    <body>
-
-        <div class="w3-light-grey w3-container w3-padding-64 w3-center">
-            <img
-                src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
-        </div>
-
-        <div class="w3-topnav w3-large w3-center w3-dark-grey">
-            <a href="home.html">Home</a> <a href="findACar.html">Find A Car</a> <a
-                href="sellACar.html">Sell A Car</a> <a href="register.html">Register</a>
-            <a href="login.html">Sign-In</a> <a href="myProfile.html">My Profile</a>
-        </div>
+<?php
+session_start();
+include_once 'header.php';
+?>
 
         <br>
 
@@ -55,7 +38,7 @@
         </div>
 
         <footer class="w3-container w3-center w3-dark-grey">
-            <p>© 2016 All Rights Reserved Wellington Institute of Technology
+            <p>ï¿½ 2016 All Rights Reserved Wellington Institute of Technology
                 (WelTec)</p>
         </footer>
 
