@@ -1,3 +1,45 @@
+<?php
+// http://www.w3schools.com/php/php_mysql_insert.asp
+// http://www.tutorialrepublic.com/php-tutorial/php-mysql-insert-query.php
+
+/* Attempt MySQL server connection. Assuming you are running MySQL
+  server with default setting (user 'root' with no password) */
+
+$link = mysqli_connect("localhost", "root", "", "project");
+
+// Check connection
+if ($link === false) 
+{
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+// Escape user inputs for security
+$first_name = mysqli_real_escape_string($link, $_GET['First_Name']);
+$last_name = mysqli_real_escape_string($link, $_GET['Last_Name']);
+$address = mysqli_real_escape_string($link, $_GET['Address']);
+$phone_number = mysqli_real_escape_string($link, $_GET['Phone_Number']);
+$email_address = mysqli_real_escape_string($link, $_GET['Email_Address']);
+$user_name = mysqli_real_escape_string($link, $_GET['User_Name']);
+$password = mysqli_real_escape_string($link, $_GET['Password']);
+
+// attempt insert query execution
+$sql = "INSERT INTO users VALUES ('','$first_name', '$last_name', '$address', '$phone_number', '$email_address', '$user_name', '$password' )";
+
+if (mysqli_query($link, $sql)) 
+{
+    echo "Records added successfully.";
+} 
+else 
+{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+
+
+// close connection
+mysqli_close($link);
+
+?>
+
 <html>
     <head>
         <meta http-equiv="content-type"
@@ -50,7 +92,7 @@
                 </div>
                 <div class="w3-twothird w3-container">
                     <h2>Mitsubishi Outlander VRX</h2>
-                    <p> Previously marked by its distinctively retro exterior styling, the Mitsubishi Outlander has been relaunched with a new look that its maker calls ‘dynamic shield’, with changes to the grille, front and rear bumpers, tailgate and side sills. We test the flagship petrol-powered model, the VRX.</p>
+                    <p> Previously marked by its distinctively retro exterior styling, the Mitsubishi Outlander has been relaunched with a new look that its maker calls ï¿½dynamic shieldï¿½, with changes to the grille, front and rear bumpers, tailgate and side sills. We test the flagship petrol-powered model, the VRX.</p>
                     <div class="w3-right-align">
                         <p>
                             <button class="w3-btn w3-dark-grey">DELETE CAR</button>
@@ -62,7 +104,7 @@
         </div>
 
         <footer class="w3-container w3-center w3-dark-grey">
-            <p>© 2016 All Rights Reserved Wellington Institute of Technology
+            <p>ï¿½ 2016 All Rights Reserved Wellington Institute of Technology
                 (WelTec)</p>
         </footer>
 
