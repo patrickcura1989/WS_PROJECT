@@ -7,6 +7,7 @@ http://php.net/manual/en/function.isset.php
 
 session_start();
 include_once 'header.php';
+include_once 'db_connection.php';
 
 
 if (isset($_POST['First_Name']) &&
@@ -18,39 +19,24 @@ if (isset($_POST['First_Name']) &&
         isset($_POST['Password'])
 ) {
 
-
-
-    /* Attempt MySQL server connection. Assuming you are running MySQL
-      server with default setting (user 'root' with no password) */
-
-    $link = mysqli_connect("localhost", "root", "", "project");
-
-// Check connection
-    if ($link === false) {
-        die("ERROR: Could not connect. " . mysqli_connect_error());
-    }
-
 // Escape user inputs for security
-    $first_name = mysqli_real_escape_string($link, $_POST['First_Name']);
-    $last_name = mysqli_real_escape_string($link, $_POST['Last_Name']);
-    $address = mysqli_real_escape_string($link, $_POST['Address']);
-    $phone_number = mysqli_real_escape_string($link, $_POST['Phone_Number']);
-    $email_address = mysqli_real_escape_string($link, $_POST['Email_Address']);
-    $user_name = mysqli_real_escape_string($link, $_POST['User_Name']);
-    $password = mysqli_real_escape_string($link, $_POST['Password']);
+    $first_name = mysqli_real_escape_string($db_connection, $_POST['First_Name']);
+    $last_name = mysqli_real_escape_string($db_connection, $_POST['Last_Name']);
+    $address = mysqli_real_escape_string($db_connection, $_POST['Address']);
+    $phone_number = mysqli_real_escape_string($db_connection, $_POST['Phone_Number']);
+    $email_address = mysqli_real_escape_string($db_connection, $_POST['Email_Address']);
+    $user_name = mysqli_real_escape_string($db_connection, $_POST['User_Name']);
+    $password = mysqli_real_escape_string($db_connection, $_POST['Password']);
 
 // attempt insert query execution
     $sql = "INSERT INTO users VALUES ('','$first_name', '$last_name', '$address', '$phone_number', '$email_address', '$user_name', '$password' )";
 
-    if (mysqli_query($link, $sql)) {
+    if (mysqli_query($db_connection, $sql)) {
         echo "USER Records added successfully.";
     } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db_connection);
     }
 
-
-// close connection
-    mysqli_close($link);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,39 +52,33 @@ if (isset($_POST['Car_Name']) &&
 ) {
 
 
-
-    /* Attempt MySQL server connection. Assuming you are running MySQL
-      server with default setting (user 'root' with no password) */
-
-    $link = mysqli_connect("localhost", "root", "", "project");
-
 // Check connection
-    if ($link === false) {
+    if ($db_connection === false) {
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
 // Escape user inputs for security
-    $Car_Name = mysqli_real_escape_string($link, $_POST['Car_Name']);
-    $Fuel_Type = mysqli_real_escape_string($link, $_POST['Fuel_Type']);
-    $Make = mysqli_real_escape_string($link, $_POST['Make']);
-    $Body = mysqli_real_escape_string($link, $_POST['Body']);
-    $Year = mysqli_real_escape_string($link, $_POST['Year']);
-    $Price = mysqli_real_escape_string($link, $_POST['Price']);
-    $Image_URL = mysqli_real_escape_string($link, $_POST['Image_URL']);
-    $Car_Description = mysqli_real_escape_string($link, $_POST['Car_Description']);
+    $Car_Name = mysqli_real_escape_string($db_connection, $_POST['Car_Name']);
+    $Fuel_Type = mysqli_real_escape_string($db_connection, $_POST['Fuel_Type']);
+    $Make = mysqli_real_escape_string($db_connection, $_POST['Make']);
+    $Body = mysqli_real_escape_string($db_connection, $_POST['Body']);
+    $Year = mysqli_real_escape_string($db_connection, $_POST['Year']);
+    $Price = mysqli_real_escape_string($db_connection, $_POST['Price']);
+    $Image_URL = mysqli_real_escape_string($db_connection, $_POST['Image_URL']);
+    $Car_Description = mysqli_real_escape_string($db_connection, $_POST['Car_Description']);
 
 // attempt insert query execution
     $sql = "INSERT INTO cars VALUES ('','$Car_Name', '$Fuel_Type', '$Make', '$Body', '$Year', '$Price', '$Image_URL', '$Car_Description','1' )";
 
-    if (mysqli_query($link, $sql)) {
+    if (mysqli_query($db_connection, $sql)) {
         echo "CAR Records added successfully.";
     } else {
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db_connection);
     }
 
 
 // close connection
-    mysqli_close($link);
+    mysqli_close($db_connection);
 }
 
 
