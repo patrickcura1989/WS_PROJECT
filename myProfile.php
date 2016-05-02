@@ -123,6 +123,33 @@ if (isset($_POST['Car_Name']) &&
             </div>
         </div>
     </div>
+    
+    
+    <!-- -->
+    <?php
+    
+    $sql = "SELECT * FROM Cars";
+
+    $result = $db_connection->query($sql);
+    
+    echo '<div class="w3-row w3-margin">
+        <div class="w3-third">
+            <img src="http://news.autotrader.co.nz/portals/0/ACP_MediaGallery/46697/45647.jpg"
+                 style="width: 100%; min-height: 200px">
+        </div>
+        <div class="w3-twothird w3-container">
+            <h2>Mitsubishi Outlander VRX</h2>
+            <p> Previously marked by its distinctively retro exterior styling, the Mitsubishi Outlander has been relaunched with a new look that its maker calls �dynamic shield�, with changes to the grille, front and rear bumpers, tailgate and side sills. We test the flagship petrol-powered model, the VRX.</p>
+            <div class="w3-right-align">
+                <p>
+                    <button class="w3-btn w3-dark-grey">DELETE CAR</button>
+                </p>
+            </div>
+        </div>
+    </div>';
+    
+    ?>
+    <!-- -->
 
 </div>
 

@@ -182,50 +182,6 @@ include_once 'db_connection.php';
 
         <div class="w3-col m9">
 
-            <div class="w3-row w3-margin">
-                <div class="w3-third">
-                    <a href="findACar_1.html">
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5008539/506103/large/lg_506103_1.jpg"
-                            style="width: 100%; min-height: 200px">
-                    </a>
-                </div>
-                <div class="w3-twothird w3-container">
-                    <h2>BMW 116i 2013</h2>
-                    <h4>$31,900</h4>
-                    <div class="w3-left-align">
-                        <ul>
-                            <li>32,500km</li>
-                            <li>Mineralgrau Metallic 5 Door</li>
-                            <li>1598cc Auto</li>
-                            <li>Petrol</li>
-                        </ul>
-                    </div>                          
-                </div>
-            </div>
-
-            <div class="w3-row w3-margin">
-                <div class="w3-third">
-                    <a href="findACar_2.html">
-                        <img
-                            src="http://photos.dmotorworks.com.au/at/AT5124597/12569/large/lg_12569_2.jpg"
-                            style="width: 100%; min-height: 200px">
-                    </a>
-                </div>
-                <div class="w3-twothird w3-container">
-                    <h2>2006 Mazda Mazda6</h2>
-                    <h4>$14,875</h4>
-                    <div class="w3-left-align">
-                        <ul>
-                            <li>84,500km</li>
-                            <li>White Hatchback</li>
-                            <li>2300cc 6 Speed</li>
-                            <li>Petrol</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <!--         -->
 
             <?php
@@ -253,7 +209,7 @@ include_once 'db_connection.php';
 
                     echo '<div class="w3-row w3-margin">
                         <div class="w3-third">
-                            <a href="findACar_2.html">
+                            <a href="findACar_1.php">
                                 <img
                                     src="' . $row["url"] . '"
                                     style="width: 100%; min-height: 200px">
@@ -268,6 +224,15 @@ include_once 'db_connection.php';
                                 {
                                     echo '<li>'.$value.'</li>' ;
                                 }
+                                
+                                $sqlFromUsers = "SELECT * FROM Users where user_id = '" . $row["user_id"] ."'";
+
+                                $resultFromUsers = $db_connection->query($sqlFromUsers );
+                                $rowResultFromUsers = $resultFromUsers->fetch_assoc();
+                                
+                                echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
+                                echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
+                                echo '<li> Email: ' . $rowResultFromUsers["email"];
                                 echo '</ul>
                             </div>
                         </div>
