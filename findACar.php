@@ -185,14 +185,14 @@ include_once 'db_connection.php';
             <!--         -->
 
             <?php
-            $sql = "SELECT * FROM Cars";
+            $sqlAllCars = "SELECT * FROM Cars";
 
-            $result = $db_connection->query($sql);
+            $resultAllCars = $db_connection->query($sqlAllCars);
 
-            if ($result->num_rows > 0)
+            if ($resultAllCars->num_rows > 0)
             {
                 // output data of each row
-                while ($row = $result->fetch_assoc())
+                while ($rowAllCars = $resultAllCars->fetch_assoc())
                 {
                     /*
                       $Car_Name = mysqli_real_escape_string($db_connection, $_POST['Car_Name']);
@@ -205,19 +205,19 @@ include_once 'db_connection.php';
                       $Car_Description = mysqli_real_escape_string($db_connection, $_POST['Car_Description']);
                      */
 
-                    $descriptionList = explode(PHP_EOL, $row["description"]);
+                    $descriptionList = explode(PHP_EOL, $rowAllCars["description"]);
 
                     echo '<div class="w3-row w3-margin">
                         <div class="w3-third">
                             <a href="findACar_1.php">
                                 <img
-                                    src="' . $row["url"] . '"
+                                    src="' . $rowAllCars["url"] . '"
                                     style="width: 100%; min-height: 200px">
                             </a>
                         </div>
                         <div class="w3-twothird w3-container">
-                            <h2>' . $row["car_name"] . '</h2>
-                            <h4>$' . $row["price"] . '</h4>
+                            <h2>' . $rowAllCars["car_name"] . '</h2>
+                            <h4>$' . $rowAllCars["price"] . '</h4>
                             <div class="w3-left-align">
                                 <ul>';
                                 foreach ($descriptionList as &$value) 
@@ -225,7 +225,7 @@ include_once 'db_connection.php';
                                     echo '<li>'.$value.'</li>' ;
                                 }
                                 
-                                $sqlFromUsers = "SELECT * FROM Users where user_id = '" . $row["user_id"] ."'";
+                                $sqlFromUsers = "SELECT * FROM Users where user_id = '" . $rowAllCars["user_id"] ."'";
 
                                 $resultFromUsers = $db_connection->query($sqlFromUsers );
                                 $rowResultFromUsers = $resultFromUsers->fetch_assoc();
@@ -243,7 +243,7 @@ include_once 'db_connection.php';
             {
                 echo "0 results";
             }
-            $db_connection->close();
+           
             ?>
 
             <!--         -->
@@ -265,3 +265,8 @@ include_once 'db_connection.php';
 
 </body>
 </html>
+
+<?php
+// close connection
+mysqli_close($db_connection);
+?>

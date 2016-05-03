@@ -111,3 +111,8 @@ if (isset($_POST['First_Name']) &&
 
 </body>
 </html>
+
+<?php
+// close connection
+mysqli_close($db_connection);
+?>
