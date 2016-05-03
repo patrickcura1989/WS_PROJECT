@@ -157,6 +157,7 @@ function validateLoginFields()
         return false;
     }
 
+    /*
     if (username.value == "patrick" && password.value == "patrick")
     {
         window.location.assign("myProfile.html");
@@ -173,7 +174,7 @@ function validateLoginFields()
         username.focus();
         return false;
     }
-
+    */
     return true;
 }
 

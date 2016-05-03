@@ -20,7 +20,7 @@ include_once 'header.php';
 
                         <div class="w3-container">
                             <div class="w3-section">
-                                <form onsubmit="return validateLoginFields()" action="myProfile.html"> 
+                                <form onsubmit="return validateLoginFields()" action="myProfile.php" method="POST">  
                                     <label><b>Username</b></label> 
                                     <input class="w3-input w3-border w3-margin-bottom" placeholder="Enter Username" type="text" onblur="setStyle1()" onfocus="setStyleFocus('username')" id="username" name="Username"> 
 
