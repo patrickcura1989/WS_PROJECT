@@ -1,6 +1,45 @@
 <?php
 session_start();
 include_once 'header.php';
+include_once 'db_connection.php';
+
+if (isset($_POST['Username']) &&
+        isset($_POST['Password'])
+)
+{
+// Escape user inputs for security
+    $user_name_login = mysqli_real_escape_string($db_connection, $_POST['Username']);
+    $password_login = mysqli_real_escape_string($db_connection, $_POST['Password']);
+
+// attempt insert query execution
+    $sqlLogIn = "SELECT * FROM users WHERE username = '$user_name_login' AND password = '$password_login'";
+
+    if (mysqli_query($db_connection, $sqlLogIn))
+    {
+        $resultLogIn = $db_connection->query($sqlLogIn);
+
+            if ($resultLogIn->num_rows > 0)
+            {
+                echo "SIGN-IN successful."; 
+                
+                $rowResultFromLogin = $resultLogIn->fetch_assoc();
+                
+                $_SESSION["usernameSignIn"] = $user_name_login;
+                $_SESSION["useridSignIn"] = $rowResultFromLogin["user_id"];
+                
+                header("Location: http://localhost/ws_project/myProfile.php"); /* Redirect browser */
+                exit();
+            }
+            else
+            {
+                echo "SIGN-IN not successful.";
+            }
+    }
+    else
+    {
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($db_connection);
+    }
+}
 ?>
 
         <br>
@@ -20,7 +59,7 @@ include_once 'header.php';
 
                         <div class="w3-container">
                             <div class="w3-section">
-                                <form onsubmit="return validateLoginFields()" action="myProfile.php" method="POST">  
+                                <form onsubmit="return validateLoginFields()" action="login.php" method="POST">  
                                     <label><b>Username</b></label> 
                                     <input class="w3-input w3-border w3-margin-bottom" placeholder="Enter Username" type="text" onblur="setStyle1()" onfocus="setStyleFocus('username')" id="username" name="Username"> 
 
@@ -43,7 +82,10 @@ include_once 'header.php';
         </footer>
 
 
-
-
     </body>
 </html>
+
+<?php
+// close connection
+mysqli_close($db_connection);
+?>

@@ -1,6 +1,56 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["usernameSignIn"])
+)
+{
+    header("Location: http://localhost/ws_project/login.php"); /* Redirect browser */
+    exit();
+    echo 'NO SESSSION set';
+}
+else
+{
+    echo 'SESSSION set ';
+    echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
+}
+
 include_once 'header.php';
+include_once 'db_connection.php';
+
+if (isset($_POST['Car_Name']) &&
+        isset($_POST['Fuel_Type']) &&
+        isset($_POST['Make']) &&
+        isset($_POST['Body']) &&
+        isset($_POST['Year']) &&
+        isset($_POST['Price']) &&
+        isset($_POST['Image_URL']) &&
+        isset($_POST['Car_Description'])
+)
+{
+
+// Escape user inputs for security
+    $Car_Name = mysqli_real_escape_string($db_connection, $_POST['Car_Name']);
+    $Fuel_Type = mysqli_real_escape_string($db_connection, $_POST['Fuel_Type']);
+    $Make = mysqli_real_escape_string($db_connection, $_POST['Make']);
+    $Body = mysqli_real_escape_string($db_connection, $_POST['Body']);
+    $Year = mysqli_real_escape_string($db_connection, $_POST['Year']);
+    $Price = mysqli_real_escape_string($db_connection, $_POST['Price']);
+    $Image_URL = mysqli_real_escape_string($db_connection, $_POST['Image_URL']);
+    $Car_Description = mysqli_real_escape_string($db_connection, $_POST['Car_Description']);
+    $user_id = $_SESSION["useridSignIn"];
+
+// attempt insert query execution
+    $sqlInsertCars = "INSERT INTO cars VALUES ('','$Car_Name', '$Fuel_Type', '$Make', '$Body', '$Year', '$Price', '$Image_URL', '$Car_Description','$user_id' )";
+
+    if (mysqli_query($db_connection, $sqlInsertCars))
+    {
+        echo "CAR Records added successfully.";
+    }
+    else
+    {
+        echo "ERROR: Could not able to execute $sqlInsertCars. " . mysqli_error($db_connection);
+    }
+}
 ?>
 
         <br>
@@ -13,7 +63,7 @@ include_once 'header.php';
                 </div>
 
                 <div class="w3-container">
-                    <form onsubmit="return validateSellACarFields(this)" action="myProfile.php" method="POST">
+                    <form onsubmit="return validateSellACarFields(this)" action="sellACar.php" method="POST">
                         <p>Car Name</p>
                         <input value="" id="carName" name="Car Name" type="text">
 
@@ -64,3 +114,8 @@ include_once 'header.php';
 
     </body>
 </html>
+
+<?php
+// close connection
+mysqli_close($db_connection);
+?>
