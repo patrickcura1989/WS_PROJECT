@@ -1,10 +1,11 @@
 <?php
 session_start();
+include_once 'header.php';
 
 if (!isset($_SESSION["usernameSignIn"])
 )
 {
-    header("Location: http://localhost/ws_project/login.php"); /* Redirect browser */
+	header("Location: http://".HOMEURL."/login.php"); /* Redirect browser */
     exit();
     echo 'NO SESSSION set';
 }
@@ -14,7 +15,7 @@ else
     echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
 }
 
-include_once 'header.php';
+
 include_once 'db_connection.php';
 
 if (isset($_POST['Car_Name']) &&

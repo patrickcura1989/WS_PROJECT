@@ -1,3 +1,9 @@
+<?php
+
+define("HOMEURL", "localhost/WS_PROJECT");
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

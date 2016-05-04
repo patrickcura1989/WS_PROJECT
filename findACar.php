@@ -185,7 +185,7 @@ include_once 'db_connection.php';
             <!--         -->
 
             <?php
-            $sqlAllCars = "SELECT * FROM Cars";
+            $sqlAllCars = "SELECT * FROM cars";
 
             $resultAllCars = $db_connection->query($sqlAllCars);
 
@@ -225,7 +225,7 @@ include_once 'db_connection.php';
                                     echo '<li>'.$value.'</li>' ;
                                 }
                                 
-                                $sqlFromUsers = "SELECT * FROM Users where user_id = '" . $rowAllCars["user_id"] ."'";
+                                $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] ."'";
 
                                 $resultFromUsers = $db_connection->query($sqlFromUsers );
                                 $rowResultFromUsers = $resultFromUsers->fetch_assoc();

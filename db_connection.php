@@ -14,4 +14,8 @@ define("DBNAME", "project");
     if ($db_connection === false) {
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
+	else
+	{
+		echo "Connected to DB";
+	}
 ?>

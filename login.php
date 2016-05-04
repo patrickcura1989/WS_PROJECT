@@ -27,7 +27,8 @@ if (isset($_POST['Username']) &&
                 $_SESSION["usernameSignIn"] = $user_name_login;
                 $_SESSION["useridSignIn"] = $rowResultFromLogin["user_id"];
                 
-                header("Location: http://localhost/ws_project/myProfile.php"); /* Redirect browser */
+				
+                header("Location: http://".HOMEURL."/myProfile.php"); /* Redirect browser */
                 exit();
             }
             else
