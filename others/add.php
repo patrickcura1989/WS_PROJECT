@@ -11,4 +11,15 @@ fwrite($fp, $data);
 
 fclose($fp);
         
+
+
+$myFile = "feedback.txt"; 
+$fh = fopen($myFile, 'r'); 
+$fs=filesize($myFile); 
+$outputFileContents = fread($fh, $fs); 
+fclose($fh); 
+echo $fs ."<br/>". $outputFileContents; 
+
+
+
 ?>

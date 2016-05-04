@@ -220,11 +220,12 @@ include_once 'db_connection.php';
                             <h4>$' . $rowAllCars["price"] . '</h4>
                             <div class="w3-left-align">
                                 <ul>';
-                                foreach ($descriptionList as &$value) 
-                                {
-                                    echo '<li>'.$value.'</li>' ;
-                                }
-                                
+
+                                echo '<li> Fuel Type: '.$rowAllCars["fuel_type"] .'</li>' ;
+                                echo '<li> Made By: '.$rowAllCars["make"] .'</li>' ;
+                                echo '<li> Body Type: '.$rowAllCars["model"] .'</li>' ;
+                                echo '<li> Year: '.$rowAllCars["year"] .'</li>' ;
+                                                                
                                 $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] ."'";
 
                                 $resultFromUsers = $db_connection->query($sqlFromUsers );

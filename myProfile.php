@@ -70,16 +70,21 @@ if (isset($_POST['car_id'])
         // output data of each row
         while ($rowMyCars = $resultMyCars->fetch_assoc())
         {
-
+            $descriptionList = explode(PHP_EOL, $rowMyCars["description"]);
             echo '<div class="w3-row w3-margin">
                             <div class="w3-third">
                                 <img src="' . $rowMyCars["url"] . '"
                                      style="width: 100%; min-height: 200px">
                             </div>
                             <div class="w3-twothird w3-container">
-                                <h2>' . $rowMyCars["car_name"] . '</h2>
-                                <p> ' . $rowMyCars["description"] . '</p>
-                                <div class="w3-right-align">
+                                <h2>' . $rowMyCars["car_name"] . '</h2>'; 
+                                
+                                foreach ($descriptionList as &$value) 
+                                {
+                                    echo '<p>'.$value.'</p>' ;
+                                }
+                    
+            echo                '<div class="w3-right-align">
                                     <p>
                                         <form action="myProfile.php" method="POST"> 
                                             <input type="hidden" name="car_id" value="'.$rowMyCars["car_id"].'">
