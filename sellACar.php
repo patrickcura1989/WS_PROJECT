@@ -106,10 +106,9 @@ if (isset($_POST['Car_Name']) &&
 
         </div>
 
-        <footer class="w3-container w3-center w3-dark-grey">
-            <p>� 2016 All Rights Reserved Wellington Institute of Technology
-                (WelTec)</p>
-        </footer>
+<?php
+include_once 'footer.php';
+?>
 
 
 
