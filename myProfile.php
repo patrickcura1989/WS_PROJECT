@@ -6,6 +6,7 @@
   http://php.net/manual/en/function.isset.php
   http://stackoverflow.com/questions/2112373/php-page-redirect
   http://www.echoecho.com/htmlforms07.htm
+  http://stackoverflow.com/questions/7261026/what-mysql-type-for-long-descriptions-with-punctuation
  */
 
 session_start();
