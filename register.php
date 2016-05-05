@@ -20,7 +20,7 @@ if (isset($_POST['First_Name']) &&
     $phone_number = mysqli_real_escape_string($db_connection, $_POST['Phone_Number']);
     $email_address = mysqli_real_escape_string($db_connection, $_POST['Email_Address']);
     $user_name = mysqli_real_escape_string($db_connection, $_POST['User_Name']);
-    $password = mysqli_real_escape_string($db_connection, $_POST['Password']);
+    $password = md5(mysqli_real_escape_string($db_connection, $_POST['Password']));
 
 // attempt insert query execution
     $sqlRegister = "INSERT INTO users VALUES ('','$first_name', '$last_name', '$address', '$phone_number', '$email_address', '$user_name', '$password' )";

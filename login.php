@@ -1,4 +1,6 @@
 <?php
+// http://webcheatsheet.com/php/md5_encrypt_passwords.php
+// http://stackoverflow.com/questions/247304/what-data-type-to-use-for-hashed-password-field-and-what-length
 session_start();
 include_once 'header.php';
 include_once 'db_connection.php';
@@ -9,7 +11,7 @@ if (isset($_POST['Username']) &&
 {
 // Escape user inputs for security
     $user_name_login = mysqli_real_escape_string($db_connection, $_POST['Username']);
-    $password_login = mysqli_real_escape_string($db_connection, $_POST['Password']);
+    $password_login = md5(mysqli_real_escape_string($db_connection, $_POST['Password']));
 
 // attempt insert query execution
     $sqlLogIn = "SELECT * FROM users WHERE username = '$user_name_login' AND password = '$password_login'";
@@ -33,7 +35,7 @@ if (isset($_POST['Username']) &&
             }
             else
             {
-                echo "SIGN-IN not successful.";
+                echo "SIGN-IN not successful. " . $password_login;
             }
     }
     else

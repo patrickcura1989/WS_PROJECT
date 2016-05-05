@@ -1,6 +1,8 @@
 <?php
 // http://www.w3schools.com/php/php_mysql_select.asp
 // http://www.echoecho.com/htmlforms14.htm
+// http://www.webreference.com/programming/php/search/2.html
+// http://www.techonthenet.com/mysql/between.php
 session_start();
 include_once 'header.php';
 include_once 'db_connection.php';
@@ -17,7 +19,7 @@ include_once 'db_connection.php';
                     <p>Search for a Car</p>
                 </div>
 
-                <form class="w3-container" onsubmit="return validateSellFields(this)" action="findACar.html">
+                <form class="w3-container" onsubmit="return validateSellFields(this)" action="findACar.php" method="GET">
                     <p>Fuel Type</p>
                     <select id="fuelType" name="Fuel Type"><option value="">Cars by Fuel Type</option>
                         <?php
@@ -201,7 +203,59 @@ include_once 'db_connection.php';
             <!--         -->
 
             <?php
-            $sqlAllCars = "SELECT * FROM cars";
+            if (isset($_GET['Model_Body_Type']) || 
+                    isset($_GET['Fuel_Type']) || 
+                    isset($_GET['Make']) || 
+                    isset($_GET['From_Year']) || 
+                    isset($_GET['Year_To']) || 
+                    isset($_GET['Price_From']) || 
+                    isset($_GET['Price_To']) || 
+                    isset($_GET['Keywords']) 
+            )
+            {
+                $bodyType = mysqli_real_escape_string($db_connection, $_GET['Model_Body_Type']);
+                $fuelType= mysqli_real_escape_string($db_connection, $_GET['Fuel_Type']);
+                $make = mysqli_real_escape_string($db_connection, $_GET['Make']);
+                $fromYear = mysqli_real_escape_string($db_connection, $_GET['From_Year']);
+                $yearTo = mysqli_real_escape_string($db_connection, $_GET['Year_To']);
+                $priceFrom = mysqli_real_escape_string($db_connection, $_GET['Price_From']);
+                $priceTo = mysqli_real_escape_string($db_connection, $_GET['Price_To']);
+                $keywords = mysqli_real_escape_string($db_connection, $_GET['Keywords']);
+                
+                $sqlAllCars = "SELECT * FROM cars WHERE model LIKE '%$bodyType%' AND fuel_type LIKE '%$fuelType%' AND make  LIKE '%$make%' AND (car_name LIKE '%$keywords%' OR description LIKE '%$keywords%' OR fuel_type LIKE '%$keywords%' OR make LIKE '%$keywords%' OR model LIKE '%$keywords%') ";
+                
+                if($fromYear  != '' AND $yearTo != '')
+                {
+                    $sqlAllCars .= "AND (year BETWEEN '$fromYear' AND '$yearTo') ";
+                }
+                else if($fromYear  != '' AND $yearTo == '')
+                {
+                    $sqlAllCars .= "AND year >= '$fromYear' ";
+                }
+                else if($fromYear  == '' AND $yearTo != '')
+                {
+                    $sqlAllCars .= "AND year <= '$yearTo' ";
+                }
+                
+                if($priceFrom  != '' AND $priceTo != '')
+                {
+                    $sqlAllCars .= "AND (price BETWEEN '$priceFrom' AND '$priceTo') ";
+                }
+                else if($priceFrom  != '' AND $priceTo == '')
+                {
+                    $sqlAllCars .= "AND price >= '$priceFrom' ";
+                }
+                else if($priceFrom  == '' AND $priceTo != '')
+                {
+                    $sqlAllCars .= "AND price <= '$priceTo' ";
+                }
+            }
+            else
+            {
+                $sqlAllCars = "SELECT * FROM cars";
+            }
+
+            echo $sqlAllCars;
 
             $resultAllCars = $db_connection->query($sqlAllCars);
 
@@ -210,24 +264,15 @@ include_once 'db_connection.php';
                 // output data of each row
                 while ($rowAllCars = $resultAllCars->fetch_assoc())
                 {
-                    /*
-                      $Car_Name = mysqli_real_escape_string($db_connection, $_POST['Car_Name']);
-                      $Fuel_Type = mysqli_real_escape_string($db_connection, $_POST['Fuel_Type']);
-                      $Make = mysqli_real_escape_string($db_connection, $_POST['Make']);
-                      $Body = mysqli_real_escape_string($db_connection, $_POST['Body']);
-                      $Year = mysqli_real_escape_string($db_connection, $_POST['Year']);
-                      $Price = mysqli_real_escape_string($db_connection, $_POST['Price']);
-                      $Image_URL = mysqli_real_escape_string($db_connection, $_POST['Image_URL']);
-                      $Car_Description = mysqli_real_escape_string($db_connection, $_POST['Car_Description']);
-                     */
+
 
                     //$descriptionList = explode(PHP_EOL, $rowAllCars["description"]);
 
                     echo '<div class="w3-row w3-margin">
-                            <form name="myform" action="http://'.HOMEURL.'/findACarDetails.php" method="GET">
+                            <form name="myform" action="http://' . HOMEURL . '/findACarDetails.php" method="GET">
                                 <div class="w3-third">
                                     <input type="image" src="' . $rowAllCars["url"] . '" style="width: 100%; min-height: 200px">
-                                    <input type="hidden" name="car_id" value="'.$rowAllCars["car_id"].'">
+                                    <input type="hidden" name="car_id" value="' . $rowAllCars["car_id"] . '">
                                 </div>
                                 <div class="w3-twothird w3-container">
                                     <h2>' . $rowAllCars["car_name"] . '</h2>
@@ -235,20 +280,20 @@ include_once 'db_connection.php';
                                     <div class="w3-left-align">
                                         <ul>';
 
-                                    echo '<li> Fuel Type: ' . $rowAllCars["fuel_type"] . '</li>';
-                                    echo '<li> Made By: ' . $rowAllCars["make"] . '</li>';
-                                    echo '<li> Body Type: ' . $rowAllCars["model"] . '</li>';
-                                    echo '<li> Year: ' . $rowAllCars["year"] . '</li>';
+                    echo '<li> Fuel Type: ' . $rowAllCars["fuel_type"] . '</li>';
+                    echo '<li> Made By: ' . $rowAllCars["make"] . '</li>';
+                    echo '<li> Body Type: ' . $rowAllCars["model"] . '</li>';
+                    echo '<li> Year: ' . $rowAllCars["year"] . '</li>';
 
-                                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] . "'";
+                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] . "'";
 
-                                    $resultFromUsers = $db_connection->query($sqlFromUsers);
-                                    $rowResultFromUsers = $resultFromUsers->fetch_assoc();
+                    $resultFromUsers = $db_connection->query($sqlFromUsers);
+                    $rowResultFromUsers = $resultFromUsers->fetch_assoc();
 
-                                    echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
-                                    echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
-                                    echo '<li> Email: ' . $rowResultFromUsers["email"];
-                                    echo '</ul>
+                    echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
+                    echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
+                    echo '<li> Email: ' . $rowResultFromUsers["email"];
+                    echo '</ul>
                                 </div>
                             </div>
                         </form>
