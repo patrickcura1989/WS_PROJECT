@@ -1,5 +1,6 @@
 <?php
 // http://www.w3schools.com/php/php_mysql_select.asp
+// http://www.echoecho.com/htmlforms14.htm
 session_start();
 include_once 'header.php';
 include_once 'db_connection.php';
@@ -223,35 +224,34 @@ include_once 'db_connection.php';
                     $descriptionList = explode(PHP_EOL, $rowAllCars["description"]);
 
                     echo '<div class="w3-row w3-margin">
-                        <div class="w3-third">
-                            <a href="findACar_1.php">
-                                <img
-                                    src="' . $rowAllCars["url"] . '"
-                                    style="width: 100%; min-height: 200px">
-                            </a>
-                        </div>
-                        <div class="w3-twothird w3-container">
-                            <h2>' . $rowAllCars["car_name"] . '</h2>
-                            <h4>$' . $rowAllCars["price"] . '</h4>
-                            <div class="w3-left-align">
-                                <ul>';
+                            <form name="myform" action="http://'.HOMEURL.'/findACarDetails.php" method="GET">
+                                <div class="w3-third">
+                                    <input type="image" src="' . $rowAllCars["url"] . '" style="width: 100%; min-height: 200px">
+                                    <input type="hidden" name="car_id" value="'.$rowAllCars["car_id"].'">
+                                </div>
+                                <div class="w3-twothird w3-container">
+                                    <h2>' . $rowAllCars["car_name"] . '</h2>
+                                    <h4>$' . $rowAllCars["price"] . '</h4>
+                                    <div class="w3-left-align">
+                                        <ul>';
 
-                    echo '<li> Fuel Type: ' . $rowAllCars["fuel_type"] . '</li>';
-                    echo '<li> Made By: ' . $rowAllCars["make"] . '</li>';
-                    echo '<li> Body Type: ' . $rowAllCars["model"] . '</li>';
-                    echo '<li> Year: ' . $rowAllCars["year"] . '</li>';
+                                    echo '<li> Fuel Type: ' . $rowAllCars["fuel_type"] . '</li>';
+                                    echo '<li> Made By: ' . $rowAllCars["make"] . '</li>';
+                                    echo '<li> Body Type: ' . $rowAllCars["model"] . '</li>';
+                                    echo '<li> Year: ' . $rowAllCars["year"] . '</li>';
 
-                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] . "'";
+                                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] . "'";
 
-                    $resultFromUsers = $db_connection->query($sqlFromUsers);
-                    $rowResultFromUsers = $resultFromUsers->fetch_assoc();
+                                    $resultFromUsers = $db_connection->query($sqlFromUsers);
+                                    $rowResultFromUsers = $resultFromUsers->fetch_assoc();
 
-                    echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
-                    echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
-                    echo '<li> Email: ' . $rowResultFromUsers["email"];
-                    echo '</ul>
+                                    echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
+                                    echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
+                                    echo '<li> Email: ' . $rowResultFromUsers["email"];
+                                    echo '</ul>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>';
                 }
             }
