@@ -21,8 +21,27 @@ define("HOMEURL", "localhost/WS_PROJECT");
                 src="http://secure.logomaker.com/logo-images/5760ae8855f56df5.gif">
         </div>
 
-        <div class="w3-topnav w3-large w3-center w3-dark-grey">
-            <a href="home.php">Home</a> <a href="findACar.php">Find A Car</a> <a
-                href="sellACar.php">Sell A Car</a> <a href="register.php">Register</a>
-            <a href="login.php">Sign-In</a> <a href="myProfile.php">My Profile</a>
+        <div id="navBar" class="w3-topnav w3-large w3-center w3-dark-grey">
+            <a href="home.php">Home</a> <a href="findACar.php">Find A Car</a> <a href="register.php">Register</a>
+            <a href="login.php">Sign-In</a>
         </div>
+        
+<?php
+
+if (isset($_SESSION["usernameSignIn"])
+)
+{
+    echo '<script type="text/javascript">' , 'clearNavBar();' , '</script>';
+    
+    echo 
+    '<div id="navBar" class="w3-topnav w3-large w3-center w3-dark-grey">
+        <a href="home.php">Home</a> <a href="findACar.php">Find A Car</a> <a
+            href="sellACar.php">Sell A Car</a> 
+        <a href="signout.php">Sign-Out</a> <a href="myProfile.php">My Profile</a>
+    </div>';
+    
+    echo 'SESSSION set ';
+    echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
+}
+
+?>

@@ -271,3 +271,9 @@ function validateSellFields(form)
     }
     
 }
+
+function clearNavBar()
+{
+    var elem = document.getElementById("navBar");
+    elem.parentNode.removeChild(elem);
+}

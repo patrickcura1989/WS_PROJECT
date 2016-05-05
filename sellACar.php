@@ -9,11 +9,6 @@ if (!isset($_SESSION["usernameSignIn"])
     exit();
     echo 'NO SESSSION set';
 }
-else
-{
-    echo 'SESSSION set ';
-    echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
-}
 
 
 include_once 'db_connection.php';

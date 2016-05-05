@@ -19,11 +19,7 @@ if (!isset($_SESSION["usernameSignIn"])
     exit();
     echo 'NO SESSSION set';
 }
-else
-{
-    echo 'SESSSION set ';
-    echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
-}
+
 
 include_once 'db_connection.php';
 
@@ -80,17 +76,17 @@ if ($resultMyCars->num_rows > 0)
                                     <div class="w3-left-align">
                                         <ul>';
 
-                                    echo '<li> Fuel Type: ' . $rowMyCars["fuel_type"] . '</li>';
-                                    echo '<li> Made By: ' . $rowMyCars["make"] . '</li>';
-                                    echo '<li> Body Type: ' . $rowMyCars["model"] . '</li>';
-                                    echo '<li> Year: ' . $rowMyCars["year"] . '</li>';
+                                            echo '<li> Fuel Type: ' . $rowMyCars["fuel_type"] . '</li>';
+                                            echo '<li> Made By: ' . $rowMyCars["make"] . '</li>';
+                                            echo '<li> Body Type: ' . $rowMyCars["model"] . '</li>';
+                                            echo '<li> Year: ' . $rowMyCars["year"] . '</li>';
 
-                                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowMyCars["user_id"] . "'";
-                                  
-                                    echo '</ul>
+                                            $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowMyCars["user_id"] . "'";
+
+                                   echo '</ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
                     </div>';
 
         echo '<div class="w3-right-align">
@@ -100,10 +96,9 @@ if ($resultMyCars->num_rows > 0)
                                             <input value="DELETE CAR" type="submit" class="w3-btn w3-dark-grey">
                                         </form>
                                     </p>
-                                </div>
-                            </div>
-                        </div>';
+                                </div>';                           
     }
+    echo '</div> </div>';
 }
 ?>
     <!-- -->
