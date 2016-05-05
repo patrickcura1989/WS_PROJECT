@@ -19,50 +19,65 @@ include_once 'db_connection.php';
                 <form class="w3-container" onsubmit="return validateSellFields(this)" action="findACar.html">
                     <p>Fuel Type</p>
                     <select id="fuelType" name="Fuel Type"><option value="">Cars by Fuel Type</option>
-                        <option value="diesel">Diesel</option>
-                        <option value="dual fuel">Dual</option>
-                        <option value="electric">Electric</option>
-                        <option value="hybrid">Hybrid</option>
-                        <option value="lpg">Lpg</option>
-                        <option value="petrol">Petrol</option>
-                        <option value="unleaded">Unleaded</option>
+                        <?php
+                        $sqlOptions = "SELECT DISTINCT(fuel_type) FROM cars ORDER BY fuel_type ASC";
+
+                        $resultOptions = $db_connection->query($sqlOptions);
+
+                        if ($resultOptions->num_rows > 0)
+                        {
+                            // output data of each row
+                            while ($rowOptions = $resultOptions->fetch_assoc())
+                            {
+                                echo
+                                '
+                                <option value="' . $rowOptions["fuel_type"] . '">' . $rowOptions["fuel_type"] . '</option>
+                                ';
+                            }
+                        }
+                        ?>
                     </select>
 
                     <p>Make</p>
                     <select id="make" name="Make"><option value="">Cars by Make</option>
-                        <option value="ac">AC</option>
-                        <option value="accessories">Accessories</option>
-                        <option value="alfa romeo">Alfa Romeo</option>
-                        <option value="aston martin">Aston Martin</option>
-                        <option value="audi">Audi</option>
-                        <option value="austin">Austin</option>
-                        <option value="austin healey">Austin Healey</option>
-                        <option value="bedford">Bedford</option>
-                        <option value="bentley">Bentley</option>
-                        <option value="bmw">BMW</option>
-                        <option value="bugatti">Bugatti</option>
-                        <option value="buick">Buick</option>
-                        <option value="cadillac">Cadillac</option>
-                        <option value="chery">Chery</option>
-                        <option value="chery">Mazda</option>
+                        <?php
+                        $sqlOptions = "SELECT DISTINCT(make) FROM cars ORDER BY make ASC";
+
+                        $resultOptions = $db_connection->query($sqlOptions);
+
+                        if ($resultOptions->num_rows > 0)
+                        {
+                            // output data of each row
+                            while ($rowOptions = $resultOptions->fetch_assoc())
+                            {
+                                echo
+                                '
+                                <option value="' . $rowOptions["make"] . '">' . $rowOptions["make"] . '</option>
+                                ';
+                            }
+                        }
+                        ?>
                     </select>
 
                     <p>Model/Body</p>
                     <select id="bodyType" name="Model Body Type"><option value="">Cars by Body Type</option>
-                        <option value="4x4">4X4</option>
-                        <option value="convertible">Convertible</option>
-                        <option value="coupe">Coupe</option>
-                        <option value="hatchback">Hatchback</option>
-                        <option value="heavy van">Heavy Van</option>
-                        <option value="luxury">Luxury</option>
-                        <option value="people mover">People Mover</option>
-                        <option value="race car">Race Car</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="sports car">Sports Car</option>
-                        <option value="suv">SUV</option>
-                        <option value="ute">Ute</option>
-                        <option value="van and minivan">Van And Minivan</option>
-                        <option value="wagon">Wagon</option>
+                        <?php
+                        $sqlOptions = "SELECT DISTINCT(model) FROM cars ORDER BY model ASC";
+
+                        $resultOptions = $db_connection->query($sqlOptions);
+
+                        if ($resultOptions->num_rows > 0)
+                        {
+                            // output data of each row
+                            while ($rowOptions = $resultOptions->fetch_assoc())
+                            {
+                                echo
+                                '
+                                <option value="' . $rowOptions["model"] . '">' . $rowOptions["model"] . '</option>
+                                ';
+                            }
+                        }
+                        ?>
                     </select>
 
                     <p>Year</p>
@@ -221,20 +236,20 @@ include_once 'db_connection.php';
                             <div class="w3-left-align">
                                 <ul>';
 
-                                echo '<li> Fuel Type: '.$rowAllCars["fuel_type"] .'</li>' ;
-                                echo '<li> Made By: '.$rowAllCars["make"] .'</li>' ;
-                                echo '<li> Body Type: '.$rowAllCars["model"] .'</li>' ;
-                                echo '<li> Year: '.$rowAllCars["year"] .'</li>' ;
-                                                                
-                                $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] ."'";
+                    echo '<li> Fuel Type: ' . $rowAllCars["fuel_type"] . '</li>';
+                    echo '<li> Made By: ' . $rowAllCars["make"] . '</li>';
+                    echo '<li> Body Type: ' . $rowAllCars["model"] . '</li>';
+                    echo '<li> Year: ' . $rowAllCars["year"] . '</li>';
 
-                                $resultFromUsers = $db_connection->query($sqlFromUsers );
-                                $rowResultFromUsers = $resultFromUsers->fetch_assoc();
-                                
-                                echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
-                                echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
-                                echo '<li> Email: ' . $rowResultFromUsers["email"];
-                                echo '</ul>
+                    $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowAllCars["user_id"] . "'";
+
+                    $resultFromUsers = $db_connection->query($sqlFromUsers);
+                    $rowResultFromUsers = $resultFromUsers->fetch_assoc();
+
+                    echo '<li> Seller Name: ' . $rowResultFromUsers["firstName"] . ' ' . $rowResultFromUsers["lastName"];
+                    echo '<li> Phone Number: ' . $rowResultFromUsers["phoneNumber"];
+                    echo '<li> Email: ' . $rowResultFromUsers["email"];
+                    echo '</ul>
                             </div>
                         </div>
                     </div>';
@@ -244,7 +259,6 @@ include_once 'db_connection.php';
             {
                 echo "0 results";
             }
-           
             ?>
 
             <!--         -->
