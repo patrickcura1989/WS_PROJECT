@@ -221,7 +221,7 @@ include_once 'db_connection.php';
                       $Car_Description = mysqli_real_escape_string($db_connection, $_POST['Car_Description']);
                      */
 
-                    $descriptionList = explode(PHP_EOL, $rowAllCars["description"]);
+                    //$descriptionList = explode(PHP_EOL, $rowAllCars["description"]);
 
                     echo '<div class="w3-row w3-margin">
                             <form name="myform" action="http://'.HOMEURL.'/findACarDetails.php" method="GET">
