@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>droppable demo</title>
+
+        <style>
+            body {padding: 0; margin: 0;}
+            .green{color: green;}
+            .red{color: red;}
+        </style>
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#username").blur(function () {
+                    var username = $(this).val();
+                    if (username == '') {
+                        $("#availability").html("");
+                    } else {
+                        $.ajax({
+                            url: "validation.php?uname=" + username
+                        }).done(function (data) {
+                            $("#availability").html(data);
+                        });
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+        <div id="availability"></div>
+    </body>
+</html>

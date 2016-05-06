@@ -19,6 +19,7 @@
  * http://stackoverflow.com/questions/4745112/javascript-regex-for-alphanumeric-string-with-length-of-3-5-chars
  * http://stackoverflow.com/questions/3303064/pass-javascript-variables-to-form-input-fields-as-onsubmit-href-link
  * https://www.sitepoint.com/community/t/validation-check-to-make-sure-at-least-one-field-is-filled-out/2329
+ * http://stackoverflow.com/questions/8121958/jquery-ajax-post-inside-a-form-prevent-form-submission-on-ajax-call
  */
 
 function validateRegisterFields(form)
@@ -60,7 +61,7 @@ function validateRegisterFields(form)
     {
         return false;
     }
-
+    
     if (!validateUsernamePassword(form.username))
     {
         return false;
@@ -69,7 +70,20 @@ function validateRegisterFields(form)
     {
         return false;
     }
-
+    
+    var username = form.username;
+    if (username == '') {
+        $("#availability").html("");
+    } else {
+        $.ajax({
+            url: "validation.php?uname=" + username
+        }).done(function (data) {
+            alert('Please provide a valid: User Name');
+            return false;
+        });
+        return false;
+    }
+    
     return true;
 }
 
@@ -113,8 +127,7 @@ function validateRequired(field)
     {
         alert(field.getAttribute("name") + " is required");
         return false;
-    }
-    else
+    } else
     {
         return true;
     }
@@ -128,14 +141,12 @@ function validatePhoneNumber(field)
     if ((field.value.match(pattern)))
     {
         return true;
-    }
-    else
+    } else
     {
         if ((field.value.match(pattern2)))
         {
             return true;
-        }
-        else
+        } else
         {
             alert("Phone Number format should be: 0dddddddd or 02dddddddd (mobile)");
             return false;
@@ -158,23 +169,23 @@ function validateLoginFields()
     }
 
     /*
-    if (username.value == "patrick" && password.value == "patrick")
-    {
-        window.location.assign("myProfile.html");
-    }
-    else
-    {
-        alert("Username Password combination not in the database")
-        username.value = "";
-        password.value = "";
-        username.style.backgroundColor = "";
-        username.style.color = "";
-        password.style.backgroundColor = "";
-        password.style.color = "";
-        username.focus();
-        return false;
-    }
-    */
+     if (username.value == "patrick" && password.value == "patrick")
+     {
+     window.location.assign("myProfile.html");
+     }
+     else
+     {
+     alert("Username Password combination not in the database")
+     username.value = "";
+     password.value = "";
+     username.style.backgroundColor = "";
+     username.style.color = "";
+     password.style.backgroundColor = "";
+     password.style.color = "";
+     username.focus();
+     return false;
+     }
+     */
     return true;
 }
 
@@ -185,8 +196,7 @@ function setStyle1()
     {
         username.style.backgroundColor = "yellow";
         username.style.color = "red";
-    }
-    else
+    } else
     {
         username.style.backgroundColor = "";
         username.style.color = "";
@@ -200,8 +210,7 @@ function setStyle2()
     {
         password.style.backgroundColor = "yellow";
         password.style.color = "red";
-    }
-    else
+    } else
     {
         password.style.backgroundColor = "";
         password.style.color = "";
@@ -225,8 +234,7 @@ function validateEmail(emailAddress)
         alert('Please provide a valid email address');
         emailAddress.focus;
         return false;
-    }
-    else
+    } else
     {
         return true;
     }
@@ -241,8 +249,7 @@ function validateUsernamePassword(field)
         alert('Please provide a valid: ' + field.getAttribute("name"));
         field.focus;
         return false;
-    }
-    else
+    } else
     {
         return true;
     }
@@ -263,13 +270,12 @@ function validateSellFields(form)
     {
         alert("You need to complete at least 1 field to conduct a search");
         return false;
-    }
-    else
+    } else
     {
-        
+
         return true;
     }
-    
+
 }
 
 function clearNavBar()
@@ -277,3 +283,4 @@ function clearNavBar()
     var elem = document.getElementById("navBar");
     elem.parentNode.removeChild(elem);
 }
+

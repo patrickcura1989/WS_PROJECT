@@ -32,7 +32,7 @@ if (isset($_POST['First_Name']) &&
         echo "USER Records added successfully.";
 
         $_SESSION["usernameSignIn"] = $user_name;
-        
+
         $sqlLogIn = "SELECT * FROM users WHERE username = '$user_name' AND password = '$password'";
         if (mysqli_query($db_connection, $sqlLogIn))
         {
@@ -41,7 +41,7 @@ if (isset($_POST['First_Name']) &&
             $_SESSION["useridSignIn"] = $rowResultFromLogin["user_id"];
         }
 
-		header("Location: http://".HOMEURL."/myProfile.php"); /* Redirect browser */
+        header("Location: http://" . HOMEURL . "/myProfile.php"); /* Redirect browser */
         exit();
     }
     else
@@ -84,9 +84,9 @@ if (isset($_POST['First_Name']) &&
                             <label><b>Email Address</b></label> 
                             <input class="w3-input w3-border w3-margin-bottom" id="emailAddress" name="Email Address" placeholder="Enter your Email Address" type="text"> 
 
-
                             <label><b>Username</b></label> 
-                            <input class="w3-input w3-border w3-margin-bottom" id="username" name="User Name" placeholder="Enter Username" type="text"> 
+                            <input class="w3-input w3-border w3-margin-bottom" id="username" name="User Name" placeholder="Enter Username" type="text">                           
+                            <div id="availability"></div>
 
                             <label><b>Password</b></label>
                             <input class="w3-input w3-border" placeholder="Enter Password" id="password" name="Password" type="password">
@@ -110,6 +110,25 @@ include_once 'footer.php';
 
 </body>
 </html>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $("#username").blur(function () {
+                            var username = $(this).val();
+                            if (username == '') {
+                                $("#availability").html("");
+                            } else {
+                                $.ajax({
+                                    url: "validation.php?uname=" + username
+                                }).done(function (data) {
+                                    $("#availability").html(data);
+                                });
+                            }
+                        });
+                    });
+</script>
 
 <?php
 // close connection
