@@ -23,7 +23,7 @@ if (mysqli_query($db_connection, $sql))
     if ($result->num_rows > 0)
     {
         //echo "<span class='red'> " . $username . " is Not Available </span> <br> <br>";
-        echo "<span class='red'> Chosen User Name is Not Available </span> <br> <br>";
+        echo "<span class='red'> Chosen Username is already taken </span> <br> <br>";
     }
     else
     {

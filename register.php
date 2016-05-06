@@ -12,41 +12,57 @@ if (isset($_POST['First_Name']) &&
         isset($_POST['Password'])
 )
 {
-
-// Escape user inputs for security
-    $first_name = mysqli_real_escape_string($db_connection, $_POST['First_Name']);
-    $last_name = mysqli_real_escape_string($db_connection, $_POST['Last_Name']);
-    $address = mysqli_real_escape_string($db_connection, $_POST['Address']);
-    $phone_number = mysqli_real_escape_string($db_connection, $_POST['Phone_Number']);
-    $email_address = mysqli_real_escape_string($db_connection, $_POST['Email_Address']);
     $user_name = mysqli_real_escape_string($db_connection, $_POST['User_Name']);
-    $password = md5(mysqli_real_escape_string($db_connection, $_POST['Password']));
 
-// attempt insert query execution
-    $sqlRegister = "INSERT INTO users VALUES ('','$first_name', '$last_name', '$address', '$phone_number', '$email_address', '$user_name', '$password' )";
+    //mysql query to select field username if it's equal to the username that we check '
+    $sqlValidUsername = "SELECT * FROM users WHERE username = '$user_name'";
 
-
-
-    if (mysqli_query($db_connection, $sqlRegister))
+    if (mysqli_query($db_connection, $sqlValidUsername))
     {
-        echo "USER Records added successfully.";
+        $resultValidUsername = $db_connection->query($sqlValidUsername);
 
-        $_SESSION["usernameSignIn"] = $user_name;
-
-        $sqlLogIn = "SELECT * FROM users WHERE username = '$user_name' AND password = '$password'";
-        if (mysqli_query($db_connection, $sqlLogIn))
+        //if number of rows fields is bigger them 0 that means it's NOT available '
+        if ($resultValidUsername->num_rows > 0)
         {
-            $resultLogIn = $db_connection->query($sqlLogIn);
-            $rowResultFromLogin = $resultLogIn->fetch_assoc();
-            $_SESSION["useridSignIn"] = $rowResultFromLogin["user_id"];
+            header("Location: http://" . HOMEURL . "/register.php"); /* Redirect browser */
+            exit();
         }
+        else
+        {
+            // Escape user inputs for security
+            $first_name = mysqli_real_escape_string($db_connection, $_POST['First_Name']);
+            $last_name = mysqli_real_escape_string($db_connection, $_POST['Last_Name']);
+            $address = mysqli_real_escape_string($db_connection, $_POST['Address']);
+            $phone_number = mysqli_real_escape_string($db_connection, $_POST['Phone_Number']);
+            $email_address = mysqli_real_escape_string($db_connection, $_POST['Email_Address']);
 
-        header("Location: http://" . HOMEURL . "/myProfile.php"); /* Redirect browser */
-        exit();
-    }
-    else
-    {
-        echo "ERROR: Could not able to execute $sqlRegister. " . mysqli_error($db_connection);
+            $password = md5(mysqli_real_escape_string($db_connection, $_POST['Password']));
+
+            // attempt insert query execution
+            $sqlRegister = "INSERT INTO users VALUES ('','$first_name', '$last_name', '$address', '$phone_number', '$email_address', '$user_name', '$password' )";
+
+            if (mysqli_query($db_connection, $sqlRegister))
+            {
+                echo "USER Records added successfully.";
+
+                $_SESSION["usernameSignIn"] = $user_name;
+
+                $sqlLogIn = "SELECT * FROM users WHERE username = '$user_name' AND password = '$password'";
+                if (mysqli_query($db_connection, $sqlLogIn))
+                {
+                    $resultLogIn = $db_connection->query($sqlLogIn);
+                    $rowResultFromLogin = $resultLogIn->fetch_assoc();
+                    $_SESSION["useridSignIn"] = $rowResultFromLogin["user_id"];
+                }
+
+                header("Location: http://" . HOMEURL . "/myProfile.php"); /* Redirect browser */
+                exit();
+            }
+            else
+            {
+                echo "ERROR: Could not able to execute $sqlRegister. " . mysqli_error($db_connection);
+            }
+        }
     }
 }
 ?>
@@ -68,7 +84,7 @@ if (isset($_POST['First_Name']) &&
 
                 <div class="w3-container">
                     <div class="w3-section">
-                        <form onsubmit="return validateRegisterFields(this)" action="register.php" method="POST">                                    
+                        <form onsubmit="return validateRegisterFields(this)" id="registerClass" action="register.php" method="POST">                                    
                             <label><b>First Name</b></label> 
                             <input class="w3-input w3-border w3-margin-bottom" id="firstName" name="First Name" placeholder="Enter your First Name" type="text"> 
 
@@ -113,21 +129,34 @@ include_once 'footer.php';
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-                    $(document).ready(function () {
-
-                        $("#username").blur(function () {
-                            var username = $(this).val();
-                            if (username == '') {
-                                $("#availability").html("");
-                            } else {
-                                $.ajax({
-                                    url: "validation.php?uname=" + username
-                                }).done(function (data) {
-                                    $("#availability").html(data);
+                            var error = '0';
+                            $(document).ready(function () {
+                                $("#username").blur(function () {
+                                    var username = $(this).val();
+                                    if (username == '') {
+                                        $("#availability").html("");
+                                    } else {
+                                        $.ajax({
+                                            url: "validation.php?uname=" + username
+                                        }).done(function (data) {
+                                            $("#availability").html(data);
+                                            if (data != '')
+                                            {
+                                                error = '1';
+                                            } else
+                                            {
+                                                error = '0';
+                                            }
+                                        });
+                                    }
                                 });
-                            }
-                        });
-                    });
+                                $("#registerClass").submit(function (e) {
+                                    if (error === '1')
+                                    {
+                                        e.preventDefault();
+                                    }
+                                });
+                            });
 </script>
 
 <?php

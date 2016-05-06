@@ -271,7 +271,7 @@ include_once 'db_connection.php';
                     echo '<div class="w3-row w3-margin">
                             <form name="myform" action="http://' . HOMEURL . '/findACarDetails.php" method="GET">
                                 <div class="w3-third">
-                                    <input type="image" src="' . $rowAllCars["url"] . '" style="width: 100%; min-height: 200px">
+                                    <input type="image" src="' . $rowAllCars["url"] . '" style="width: 100%; min-height: 200px" alt="Image not Available">
                                     <input type="hidden" name="car_id" value="' . $rowAllCars["car_id"] . '">
                                 </div>
                                 <div class="w3-twothird w3-container">

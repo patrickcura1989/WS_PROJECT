@@ -45,14 +45,10 @@ if (isset($_POST['car_id'])
 
 <br>
 
-<div class="w3-center">
-    <h2>My Cars For Sale</h2><br>
-</div>
-
-<div class="w3-content">
 
 
-    <!-- -->
+
+<!-- -->
 <?php
 $user_id = $_SESSION["useridSignIn"];
 $sqlMyCars = "SELECT * FROM cars WHERE user_id = '$user_id'";
@@ -61,14 +57,21 @@ $resultMyCars = $db_connection->query($sqlMyCars);
 
 if ($resultMyCars->num_rows > 0)
 {
+    echo'
+    <div class="w3-center">
+        <h2>My Cars For Sale</h2><br>
+    </div>
+    <div class="w3-content">
+    ';
+
     // output data of each row
     while ($rowMyCars = $resultMyCars->fetch_assoc())
     {
         echo '<div class="w3-row w3-margin">
-                            <form name="myform" action="http://'.HOMEURL.'/findACarDetails.php" method="GET">
+                            <form name="myform" action="http://' . HOMEURL . '/findACarDetails.php" method="GET">
                                 <div class="w3-third">
-                                    <input type="image" src="' . $rowMyCars["url"] . '" style="width: 100%; min-height: 200px">
-                                    <input type="hidden" name="car_id" value="'.$rowMyCars["car_id"].'">
+                                    <input type="image" src="' . $rowMyCars["url"] . '" style="width: 100%; min-height: 200px" alt="Image not Available">
+                                    <input type="hidden" name="car_id" value="' . $rowMyCars["car_id"] . '">
                                 </div>
                                 <div class="w3-twothird w3-container">
                                     <h2>' . $rowMyCars["car_name"] . '</h2>
@@ -76,14 +79,14 @@ if ($resultMyCars->num_rows > 0)
                                     <div class="w3-left-align">
                                         <ul>';
 
-                                            echo '<li> Fuel Type: ' . $rowMyCars["fuel_type"] . '</li>';
-                                            echo '<li> Made By: ' . $rowMyCars["make"] . '</li>';
-                                            echo '<li> Body Type: ' . $rowMyCars["model"] . '</li>';
-                                            echo '<li> Year: ' . $rowMyCars["year"] . '</li>';
+        echo '<li> Fuel Type: ' . $rowMyCars["fuel_type"] . '</li>';
+        echo '<li> Made By: ' . $rowMyCars["make"] . '</li>';
+        echo '<li> Body Type: ' . $rowMyCars["model"] . '</li>';
+        echo '<li> Year: ' . $rowMyCars["year"] . '</li>';
 
-                                            $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowMyCars["user_id"] . "'";
+        $sqlFromUsers = "SELECT * FROM users where user_id = '" . $rowMyCars["user_id"] . "'";
 
-                                   echo '</ul>
+        echo '</ul>
                                     </div>
                                 </div>
                             </form>
@@ -96,12 +99,21 @@ if ($resultMyCars->num_rows > 0)
                                             <input value="DELETE CAR" type="submit" class="w3-btn w3-dark-grey">
                                         </form>
                                     </p>
-                                </div>';                           
+                                </div>';
     }
     echo '</div> </div>';
 }
+else
+{
+    echo'
+    <div class="w3-center">
+        <h2>You do not have Cars For Sale</h2><br>
+    </div>
+    <div class="w3-content">
+    ';
+}
 ?>
-    <!-- -->
+<!-- -->
 
 </div>
 

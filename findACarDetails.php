@@ -58,12 +58,12 @@ else
                             <div class="w3-third">
                                 <img
                                     src="' . $rowMyCars["url"] . '"
-                                    style="width: 100%; min-height: 200px">
+                                    style="width: 100%; min-height: 200px" alt="Image not Available">
                             </div>
 
                             <div class="w3-twothird w3-container">
                                 <h2>' . $rowMyCars["car_name"] . '</h2>';
-                        echo '<h4>$31,900</h4>
+                        echo '<h4> $' . $rowMyCars["price"] . '</h4>
                                 <div class="w3-left-align">';
                         foreach ($descriptionList as &$value)
                         {

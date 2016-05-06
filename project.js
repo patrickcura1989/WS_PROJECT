@@ -21,7 +21,7 @@
  * https://www.sitepoint.com/community/t/validation-check-to-make-sure-at-least-one-field-is-filled-out/2329
  * http://stackoverflow.com/questions/8121958/jquery-ajax-post-inside-a-form-prevent-form-submission-on-ajax-call
  */
-
+var usernameValid = true;
 function validateRegisterFields(form)
 {
     if (!validateRequired(form.firstName))
@@ -71,18 +71,6 @@ function validateRegisterFields(form)
         return false;
     }
     
-    var username = form.username;
-    if (username == '') {
-        $("#availability").html("");
-    } else {
-        $.ajax({
-            url: "validation.php?uname=" + username
-        }).done(function (data) {
-            alert('Please provide a valid: User Name');
-            return false;
-        });
-        return false;
-    }
     
     return true;
 }
