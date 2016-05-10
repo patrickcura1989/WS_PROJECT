@@ -11,7 +11,7 @@
 include_once 'db_connection.php';
 
 //get the username
-$username = mysql_real_escape_string($_GET['uname']);
+$username = mysqli_real_escape_string($db_connection, $_GET['uname']);
 
 //mysql query to select field username if it's equal to the username that we check '
 $sql = "SELECT * FROM users WHERE username = '$username'";
