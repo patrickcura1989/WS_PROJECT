@@ -255,7 +255,7 @@ include_once 'db_connection.php';
                 $sqlAllCars = "SELECT * FROM cars";
             }
 
-            echo $sqlAllCars;
+            //echo $sqlAllCars;
 
             $resultAllCars = $db_connection->query($sqlAllCars);
 

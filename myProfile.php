@@ -34,7 +34,7 @@ if (isset($_POST['car_id'])
 
     if (mysqli_query($db_connection, $sqldeleteCar))
     {
-        echo "CAR Deleted successfully.";
+        //echo "CAR Deleted successfully.";
     }
     else
     {
@@ -107,7 +107,7 @@ else
 {
     echo'
     <div class="w3-center">
-        <h2>You do not have Cars For Sale</h2><br>
+        <h2>You do not have cars for sale</h2><br>
     </div>
     <div class="w3-content">
     ';
@@ -116,6 +116,7 @@ else
 <!-- -->
 
 </div>
+
 
 <?php
 include_once 'footer.php';

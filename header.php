@@ -11,7 +11,7 @@ define("HOMEURL", "localhost/WS_PROJECT");
               content="text/html; charset=windows-1252">
         <title>Buy &amp; Sell Used Cars</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="project.css">
+        <link rel="stylesheet" href="w3.css">
         <script src="project.js"></script>
     </head>
     <body>
@@ -40,8 +40,8 @@ if (isset($_SESSION["usernameSignIn"])
         <a href="signout.php">Sign-Out</a> <a href="myProfile.php">My Profile</a>
     </div>';
     
-    echo 'SESSSION set ';
-    echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
+    //echo 'SESSSION set ';
+    //echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
 }
 
 ?>

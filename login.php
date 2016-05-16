@@ -1,6 +1,7 @@
 <?php
 // http://webcheatsheet.com/php/md5_encrypt_passwords.php
 // http://stackoverflow.com/questions/247304/what-data-type-to-use-for-hashed-password-field-and-what-length
+// 
 session_start();
 include_once 'header.php';
 include_once 'db_connection.php';
@@ -22,7 +23,7 @@ if (isset($_POST['Username']) &&
 
             if ($resultLogIn->num_rows > 0)
             {
-                echo "SIGN-IN successful."; 
+                //echo "SIGN-IN successful."; 
                 
                 $rowResultFromLogin = $resultLogIn->fetch_assoc();
                 
@@ -35,7 +36,20 @@ if (isset($_POST['Username']) &&
             }
             else
             {
-                echo "SIGN-IN not successful. " . $password_login;
+                //echo "SIGN-IN not successful. " . $password_login;
+                echo '<div style="display: block;" id="id01" class="w3-modal">
+                    <div class="w3-modal-content w3-animate-top w3-card-8">
+                      <header class="w3-container w3-red"> 
+                        <h2>Sign-In Failed</h2>
+                      </header>
+                      <div class="w3-container">
+                        <p>Invalid Username or Password</p>
+                      </div>
+                      <footer class="w3-container w3-red">
+                          <span onclick="document.getElementById(\'id01\').style.display=\'none\'" class="w3-closebtn w3-text-white w3-medium w3-right w3-hover-text-black"><p>Close</p></span>     
+                      </footer>
+                    </div>
+                  </div>';
             }
     }
     else
@@ -78,10 +92,6 @@ if (isset($_POST['Username']) &&
             </div>
 
         </div>
-
-<?php
-include_once 'footer.php';
-?>
 
 
     </body>

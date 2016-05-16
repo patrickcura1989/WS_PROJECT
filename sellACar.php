@@ -40,7 +40,8 @@ if (isset($_POST['Car_Name']) &&
 
     if (mysqli_query($db_connection, $sqlInsertCars))
     {
-        echo "CAR Records added successfully.";
+        //echo "CAR Records added successfully.";
+        header("Location: http://" . HOMEURL . "/myProfile.php"); /* Redirect browser */
     }
     else
     {

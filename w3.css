@@ -1,6 +1,23 @@
 .green{color: green;}
 .red{color: red;}
 
+/* http://www.labnol.org/internet/embed-responsive-google-maps/28333/
+   http://www.w3schools.com/css/css_positioning.asp
+   https://css-tricks.com/absolute-positioning-inside-relative-positioning/
+ */
+.google-maps {
+	position: relative;
+	padding-bottom: 50%; /*This is the aspect ratio height : 0; */
+	overflow: hidden; /* http://www.w3schools.com/cssref/playit.asp?filename=playcss_overflow */
+}
+#googleMap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
 /* W3.CSS 2.2 by Jan Egil and Borge Refsnes. Do not remove this line. */
 * {
     -webkit-box-sizing: border-box;
