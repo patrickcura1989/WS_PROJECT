@@ -34,7 +34,7 @@ if (isset($_POST['car_id'])
 
     if (mysqli_query($db_connection, $sqldeleteCar))
     {
-        //echo "CAR Deleted successfully.";
+        echo "Car deleted successfully.";
     }
     else
     {

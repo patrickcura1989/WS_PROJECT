@@ -23,7 +23,7 @@ if (isset($_POST['Username']) &&
 
             if ($resultLogIn->num_rows > 0)
             {
-                //echo "SIGN-IN successful."; 
+                echo "SIGN-IN successful."; 
                 
                 $rowResultFromLogin = $resultLogIn->fetch_assoc();
                 

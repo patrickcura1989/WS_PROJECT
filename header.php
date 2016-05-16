@@ -42,6 +42,7 @@ if (isset($_SESSION["usernameSignIn"])
     
     //echo 'SESSSION set ';
     //echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN. ID is " . $_SESSION["useridSignIn"];
+    //echo "<br>" . $_SESSION["usernameSignIn"] . " LOGGED IN.";
 }
 
 ?>

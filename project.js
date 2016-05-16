@@ -106,7 +106,7 @@ function validateSellACarFields(form)
         return false;
     }
      
-    if (!validateNumber(form.price))
+    if (!validateFloat(form.price))
     {
         return false;
     }
@@ -125,6 +125,21 @@ function validateNumber(field)
     if (!filter.test(field.value))
     {
         alert('Please provide a valid number for: ' + field.getAttribute("name") );
+        field.focus;
+        return false;
+    } else
+    {
+        return true;
+    }
+}
+
+function validateFloat(field)
+{
+    var filter = /^\d+(\.\d+)?$/;
+   
+    if (!filter.test(field.value))
+    {
+        alert('Please provide a valid decimal number for: ' + field.getAttribute("name") );
         field.focus;
         return false;
     } else
