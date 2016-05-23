@@ -93,6 +93,9 @@ if (isset($_POST['Username']) &&
 
         </div>
 
+<?php
+include_once 'footer.php';
+?>
 
     </body>
 </html>
